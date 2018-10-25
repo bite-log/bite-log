@@ -20,9 +20,8 @@ Communication Plan:
     - Check in once by day before 5:30pm; discuss if we decide to meet somewhere else or if we can't make it
     - Answer any outstanding questions within 24 hours
     
-- Google Doc
-    - Place to input ideas
-    - Place where we have our on-going to-do list
+- Google Doc - Place to input ideas
+- GitHub Projects - Our to-do list / kanban board
 
 Other agreements:
 
@@ -38,4 +37,3 @@ Git Process:
 - If there are any conflicts, communicate with one another to ensure that the latest and greatest is being incorporated.
 - Anytime you stop coding, A-C-P
 - Always pull to local before you start coding
-- https://github.com/codefellows/seattle-201n12/blob/master/class-15-preview-301/git-team-workflow.md
