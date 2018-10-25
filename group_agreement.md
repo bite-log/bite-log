@@ -23,6 +23,12 @@ Communication Plan:
 - Google Doc - Place to input ideas
 - GitHub Projects - Our to-do list / kanban board
 
+Conflict Resolution Plan:
+
+- No diva rule. 
+- No passive aggressive behavior. 
+- Discussion is allowed for 20 mins, but if no resolution there will be a majority-rules vote.
+
 Other agreements:
 
 - Work/life balance > everything
