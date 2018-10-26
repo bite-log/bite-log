@@ -2,9 +2,9 @@ body{
     font-family: 'Karla', Arial, Helvetica, sans-serif;
     color: #3F4D51;
 }
-.user-profile{
-    background: url() lightgray;
-    height: 200px;
+header{
+    background-image: url('../images/gallerydefault.jpg');
+    height: 350px;
     width: 100%;
 }
 h1{
@@ -32,9 +32,11 @@ h4{
 h5{
 
 }
+#gallery-view{
+    margin-top: 20px;
+}
 figure{
     display: inline-block;
-    padding: 5px;
 }
 figcaption{
     display: none;
@@ -44,6 +46,9 @@ section{
     width: 960px;
     margin: auto;
     padding: 25px;
+}
+section ul li{
+    display: inline;
 }
 footer{
     padding: 20px;
