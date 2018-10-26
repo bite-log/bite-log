@@ -31,11 +31,21 @@
     <section>
         <h2>your bite.log</h2>
         
+        <!--Filter-->
+        <select name="food-category" class="footer-column   ">
+            <option value="default" selected="selected">Category</option>
+        </select>
+        <select name="filter-by">
+            <option value="default" selected="selected">Filter By</option>
+            <option value="filter-favs" selected="selected">Favorites</option>
+            <option value="filter-ratinghl" selected="selected">Rating, high to low</option>
+            <option value="filter-ratinglw" selected="selected">Rating, low to high</option>
+        </select>
         <!--Grid and List view icons from fontawesome.com-->
-        <ul align="right">
-            <li><i class="fas fa-th-large" alt="Grid View"></i></li>
+        <ul class="float-right">
+            <li><a href="#" onClick="changeView()" id="grid-icon"><i class="fas fa-th-large" alt="Grid View"></i></a></li>
             <li>|</li>
-            <li><i class="fas fa-list"></i></li>
+            <li><a href="#" onClick="changeView()" id="list-icon"><i class="fas fa-list" alt="List View"></i></a></li>
         </ul>
 
         <div id="gallery-view">
@@ -64,17 +74,26 @@
                 <figcaption>Food</figcaption>
             </figure>
         </div>
-
+        <hr>
         <div id="list-view">
-
+            <figure class="list-container">
+                <img src="http://place-hold.it/315x190/999" class="list-img">
+                <figcaption class="list-caption">
+                    <h5 id="inline">Food Item Name</h5> <i class="fas fa-heart" id="inline"></i>
+                    <h6>Restaurant Name</h6><br>
+                    Category<br>
+                    Rating: *** / *****
+                    <p>Comments: This was an amazing f00dz.</p>
+                </figcaption>
+            </figure>
         </div>
     </section>
     
 
     <!--Footer-->
     <footer>
-        <div class="logo">
-            <img src="./images/logo.png" width="40px" height="40px">
+        <div class="footer-column">
+            <img src="./images/logo.png" class="logo">
             <h5>bite.log</h5>
             <ul>
                 <li><a href="index.html">Home</a></li>
@@ -83,11 +102,16 @@
             </ul>
             &copy; 2018 bite.log
         </div>
-        <div>
+        <div class="footer-column">
             <h3>Top Rated</h3>
         </div>
-        <div>
+        <div class="footer-column">
             <h3>Friends List</h3>
+            <ol>
+                <li>Gordon Ramsay</li>
+                <li>Bobby Flay</li>
+                <li>Curtis Stone</li>
+            </ol>
         </div>
     </footer>
 
