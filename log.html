@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>bite.log [we're made pho each other] - your bite.log</title>
     <link href="./css/reset.css" type="text/css" rel="stylesheet">
-    <!-- <link href="./css/style.css" type="text/css" rel="stylesheet"> -->
+    <link href="./css/style.css" type="text/css" rel="stylesheet">
     <link href="./css/gallery.css" type="text/css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Poppins|Karla" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
@@ -14,105 +14,118 @@
 <body>
     <!--User Profile-->
     <header class="user-profile">
-        <div style="nav">
+        <div id="nav">
+            <img src="https://placehold.it/30x30/222" alt="=">
+            <img src="https://placehold.it/30x30/222" alt="+">
             <nav>
                 <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="log.html">Bite log</a></li>
-                    <li><a href="add.html">Add Log</a></li>
+                    <li><a href="index.html">home</a></li>
+                    <li><a href="log.html">bite log</a></li>
+                    <li><a href="add.html">add log</a></li>
                 </ul>
             </nav>
         </div>
-        <h1>bite.log</h1>
-        <h4>good chives only.</h4>
+        <div id="header-logo">
+            <h1>bite.log</h1>
+            <h4>we're kind of a big dill.</h4>
+        </div>
+        
     </header>
 
     <!--Gallery-->
-    <section>
-        <h2>your bite.log</h2>
-        
-        <!--Filter-->
-        <select name="food-category" class="footer-column   ">
-            <option value="default" selected="selected">Category</option>
-        </select>
-        <select name="filter-by">
-            <option value="default" selected="selected">Filter By</option>
-            <option value="filter-favs" selected="selected">Favorites</option>
-            <option value="filter-ratinghl" selected="selected">Rating, high to low</option>
-            <option value="filter-ratinglw" selected="selected">Rating, low to high</option>
-        </select>
-        <!--Grid and List view icons from fontawesome.com-->
-        <ul class="float-right">
-            <li><a href="#" onClick="changeView()" id="grid-icon"><i class="fas fa-th-large" alt="Grid View"></i></a></li>
-            <li>|</li>
-            <li><a href="#" onClick="changeView()" id="list-icon"><i class="fas fa-list" alt="List View"></i></a></li>
-        </ul>
+    <main>
+        <section>
+            <h2>your bite.log</h2>
+            
+            <!--Filter-->
+            <select name="food-category" class="float">
+                <option value="default" selected="selected">Category</option>
+            </select>
+            <select name="filter-by">
+                <option value="default" selected="selected">Filter By</option>
+                <option value="filter-favs" selected="selected">Favorites</option>
+                <option value="filter-ratinghl" selected="selected">Rating, high to low</option>
+                <option value="filter-ratinglw" selected="selected">Rating, low to high</option>
+            </select>
+            <!--Grid and List view icons from fontawesome.com-->
+            <ul class="float-right">
+                <li><a href="#" onClick="changeView()" id="grid-icon"><i class="fas fa-th-large" alt="Grid View"></i></a></li>
+                <li>|</li>
+                <li><a href="#" onClick="changeView()" id="list-icon"><i class="fas fa-list" alt="List View"></i></a></li>
+            </ul>
 
-        <div id="gallery-view">
-            <figure>
-                <img src="http://place-hold.it/315x190/999">
-                <figcaption>Food</figcaption>
-            </figure>
-            <figure>
-                <img src="http://place-hold.it/315x190/999">
-                <figcaption>Food</figcaption>
-            </figure>
-            <figure>
-                <img src="http://place-hold.it/315x190/999">
-                <figcaption>Food</figcaption>
-            </figure>
-            <figure>
-                <img src="http://place-hold.it/315x190/999">
-                <figcaption>Food</figcaption>
-            </figure>
-            <figure>
-                <img src="http://place-hold.it/315x190/999">
-                <figcaption>Food</figcaption>
-            </figure>
-            <figure>
-                <img src="http://place-hold.it/315x190/999">
-                <figcaption>Food</figcaption>
-            </figure>
-        </div>
-        <hr>
-        <div id="list-view">
-            <figure class="list-container">
-                <img src="http://place-hold.it/315x190/999" class="list-img">
-                <figcaption class="list-caption">
-                    <h5 id="inline">Food Item Name</h5> <i class="fas fa-heart" id="inline"></i>
-                    <h6>Restaurant Name</h6><br>
-                    Category<br>
-                    Rating: *** / *****
-                    <p>Comments: This was an amazing f00dz.</p>
-                </figcaption>
-            </figure>
-        </div>
-    </section>
-    
+            <div id="gallery-view">
+                <figure>
+                    <img src="http://place-hold.it/315x190/999">
+                    <figcaption>Food</figcaption>
+                </figure>
+                <figure>
+                    <img src="http://place-hold.it/315x190/999">
+                    <figcaption>Food</figcaption>
+                </figure>
+                <figure>
+                    <img src="http://place-hold.it/315x190/999">
+                    <figcaption>Food</figcaption>
+                </figure>
+                <figure>
+                    <img src="http://place-hold.it/315x190/999">
+                    <figcaption>Food</figcaption>
+                </figure>
+                <figure>
+                    <img src="http://place-hold.it/315x190/999">
+                    <figcaption>Food</figcaption>
+                </figure>
+                <figure>
+                    <img src="http://place-hold.it/315x190/999">
+                    <figcaption>Food</figcaption>
+                </figure>
+            </div>
+            <hr>
+            <div id="list-view">
+                <figure class="list-container">
+                    <img src="http://place-hold.it/315x190/999" class="list-img">
+                    <figcaption class="list-caption">
+                        <h5 id="inline">Food Item Name</h5> <i class="fas fa-heart" id="inline"></i>
+                        <h6>Restaurant Name</h6><br>
+                        Category<br>
+                        Rating: *** / *****
+                        <p>Comments: This was an amazing f00dz.</p>
+                    </figcaption>
+                </figure>
+            </div>
+        </section>
+    </main>
 
     <!--Footer-->
     <footer>
-        <div class="footer-column">
-            <img src="./images/logo.png" class="logo">
-            <h5>bite.log</h5>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="log.html">Bite log</a></li>
-                <li><a href="add.html">Add Log</a></li>
-            </ul>
-            &copy; 2018 bite.log
-        </div>
-        <div class="footer-column">
-            <h3>Top Rated</h3>
-        </div>
-        <div class="footer-column">
-            <h3>Friends List</h3>
-            <ol>
-                <li>Gordon Ramsay</li>
-                <li>Bobby Flay</li>
-                <li>Curtis Stone</li>
-            </ol>
-        </div>
+        <section>
+            <div id="footer-logo"> 
+                <img src="./images/logo.png">
+                <h5>bite.log</h5>
+                <ul>
+                    <li><a href="index.html">home</a></li>
+                    <li><a href="log.html">bite log</a></li>
+                    <li><a href="add.html">add log</a></li>
+                </ul>
+                &copy; 2018 bite.log
+            </div>
+            <div>
+                <h3>top rated</h3>
+                <ol>
+                    <li>pho</li>
+                    <li>hamburgers</li>
+                    <li>potatoes</li>
+                </ol>
+            </div>
+            <div>
+                <h3>friends list</h3>
+                <ol>
+                    <li>Julia Child</li>
+                    <li>Martha Stewart</li>
+                    <li>Nigella Lawson</li>
+                </ol>
+            </div>
+        </section>
     </footer>
 <script src='./js/app.js'></script>
 </body>
