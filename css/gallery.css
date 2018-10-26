@@ -15,7 +15,8 @@
 }
 
 #gallery-view{
-    margin-top: 20px;
+    margin: 20px auto;
+    text-align: center;
 }
 figure{
     display: inline-block;
@@ -62,4 +63,12 @@ hr{
 }
 .float-right{
     float: right;
+}
+.food-pic{
+    width: 33.3%;
+    height: 190px;
+    object-fit: cover;
+    padding-right: 10px;
+    padding-bottom: 7px;
+    box-sizing: border-box;
 }
