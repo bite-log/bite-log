@@ -2,7 +2,7 @@
 
 //===========Global Variables==============
 
-var categoryArray = ['insert', 'categories', 'here'];
+var categoryArray = ['Chinese', 'Japanese', 'Vietnamese', 'Korean', 'Thai', 'Greek', 'Mexican', 'Mediterranean', 'Cocktail Bars', 'Food Truck', 'Italian', 'French', 'Fast Food', 'Fast Casual', 'Fine Dining', 'Pub', 'Coffee & Tea', 'Dessert', 'Barbecue', 'Buffet', 'Seafood', 'Deli', 'American', 'Pizza', 'Vegan', 'Tapas/Small Plates', 'Breakfast & Brunch'];
 var restaurantArray = [];
 var biteLogEntryArray = [];
 
@@ -20,16 +20,14 @@ var UserProfile = function (username, spice, src) {
   this.uniqueEntryArray = 0;
 };
 
-var BiteLogEntry = function(dish, restaurant, category, src, rating) {
-  var isfavorite = null;
-  var comment = null;
+var BiteLogEntry = function(dish, restaurant, category, src, rating, isFav, comment) {
   this.dishName = dish;
   this.restaurant = restaurant;
   this.category = category;
   this.src = src;
   this.rating = rating;
 
-  this.isfavorite = isfavorite;
+  this.isFavorite = isFav;
   this.comment = comment;
 
   biteLogEntryArray.push(this);
@@ -50,7 +48,11 @@ BiteLogEntry.prototype.renderSingleList = function(){
   var figureEl = document.createElement('figure');
   var figCapEl = document.createElement('figcaption');
   var imgEl = document.createElement('img');
+  var favEl = document.createElement('i');
   var h5El = document.createElement('h5');
+  var h6El = document.createElement('h6');
+  var spanEl = document.createElement('span');
+  var commentEl = document.createElement('p');
 
   //Setting attributes
   figureEl.setAttribute('class', 'list-container')
@@ -60,20 +62,47 @@ BiteLogEntry.prototype.renderSingleList = function(){
   //Defining
   imgEl.src = this.src;
   h5El.textContent = this.dishName;
+  h6El.textContent = this.restaurant;
+  spanEl.textContent = this.category;
+  commentEl.textContent = this.comment;
 
   //Appending
   listView.appendChild(figureEl);
   figureEl.appendChild(imgEl);
   figureEl.appendChild(figCapEl);
   figCapEl.appendChild(h5El);
+
+  //if Favorited
+  if (this.isFavorite === true){
+    favEl.setAttribute('class', 'fas fa-heart');
+  } else{
+    favEl.setAttribute('class', 'far fa-heart');
+  }
+
+  //Number of stars
+  for(var i = 0; i < this.rating; i++){
+    var starEl = document.createElement('i');
+    starEl.setAttribute('class', 'fas fa-star');
+    figCapEl.appendChild(starEl);
+  }
+  for (var x = 0; x < (5 - this.rating); x++){
+    var starEl = document.createElement('i');
+    starEl.setAttribute('class', 'far fa-star');
+    figCapEl.appendChild(starEl);
+  }
+
+  figCapEl.appendChild(h6El);
+  figCapEl.appendChild(spanEl);
+  figCapEl.appendChild(favEl);
+  figCapEl.appendChild(commentEl);
 };
 
 
 //============Test Entries==================
 
 new BiteLogEntry('burger', 'Burger Joint', 'Pub Food', './assets/burger.jpg' , '5', true, 'Delicious');
-new BiteLogEntry('pasta', 'Pasta Joint', 'Italian', './assets/pasta.png', '3', false, 'fantastic!');
-new BiteLogEntry('Pot Roast', 'Pot Roast City', 'Comfort Food', './assets/potroast.jpg', '4', false, 'Magical!');
-new BiteLogEntry('Chili', 'Chiliville', 'Comfort Food', './assets/chili.jpg', '2', false, 'good, not great');
-new BiteLogEntry('zoodles', 'Oodles O Noodles', 'Vegetarian', './assets/zoodles.jpg', '1', false, 'watery');
-new BiteLogEntry('cake', 'Just Cakes', 'Dessert', './assets/cake.jpg', '5', true, 'so moist');
+new BiteLogEntry('pasta', 'Pasta Joint', 'Italian', './assets/pasta.png', 3, false, 'fantastic!');
+new BiteLogEntry('Pot Roast', 'Pot Roast City', 'Comfort Food', './assets/potroast.jpg', 4, false, 'Magical!');
+new BiteLogEntry('Chili', 'Chiliville', 'Comfort Food', './assets/chili.jpg', 2, false, 'good, not great');
+new BiteLogEntry('zoodles', 'Oodles O Noodles', 'Vegetarian', './assets/zoodles.jpg', 1, false, 'watery');
+new BiteLogEntry('cake', 'Just Cakes', 'Dessert', './assets/cake.jpg', 5, true, 'so moist');

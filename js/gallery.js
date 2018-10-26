@@ -6,7 +6,6 @@ var gridIcon = document.getElementById('grid-icon');
 
 //Event handlers
 var changeViewHandler = function(event){
-  event.preventDefault();
   if (event.target.id === 'grid-icon'){
     listIcon.removeAttribute('class');
     gridIcon.setAttribute('class', 'icon-selected');
@@ -44,7 +43,7 @@ var renderList = function(){
     biteLogEntryArray[i].renderSingleList();
   }
 };
-
+renderGallery();
 viewIconSection.addEventListener('click', changeViewHandler);
 changeViewHandler();
 
