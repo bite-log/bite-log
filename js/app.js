@@ -6,7 +6,8 @@ var categoryArray = ['insert', 'categories', 'here'];
 var restaurantArray = [];
 var biteLogEntryArray = [];
 
-var displayEl = document.getElementById('gallery-view');
+var galleryView = document.getElementById('gallery-view');
+var listView = document.getElementById('list-view');
 
 //==========Constructor Functions==========
 
@@ -41,12 +42,42 @@ BiteLogEntry.prototype.renderSingleEntry = function (){
   var imgEl = document.createElement('img');
   imgEl.setAttribute('class', 'food-pic');
   imgEl.src = this.src;
-  displayEl.appendChild(imgEl);
+  galleryView.appendChild(imgEl);
 };
 
-var renderAll = function () {
+BiteLogEntry.prototype.renderSingleList = function(){
+  //Defining HTML elements
+  var figureEl = document.createElement('figure');
+  var figCapEl = document.createElement('figcaption');
+  var imgEl = document.createElement('img');
+  var h5El = document.createElement('h5');
+
+  //Setting attributes
+  figureEl.setAttribute('class', 'list-container')
+  figCapEl.setAttribute('class', 'list-caption');
+  imgEl.setAttribute('class', 'food-pic-list');
+
+  //Defining
+  imgEl.src = this.src;
+  h5El.textContent = this.dishName;
+
+  //Appending
+  listView.appendChild(figureEl);
+  figureEl.appendChild(imgEl);
+  figureEl.appendChild(figCapEl);
+  figCapEl.appendChild(h5El);
+  
+};
+
+var renderGallery = function () {
   for (var i in biteLogEntryArray) {
     biteLogEntryArray[i].renderSingleEntry();
+  }
+};
+
+var renderList = function(){
+  for (var i in biteLogEntryArray) {
+    biteLogEntryArray[i].renderSingleList();
   }
 };
 
@@ -61,4 +92,6 @@ new BiteLogEntry('cake', 'Just Cakes', 'Dessert', './assets/cake.jpg', '5', true
 
 //==========Function Calls=================
 
-renderAll();
+renderGallery();
+renderList();
+

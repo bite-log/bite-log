@@ -21,9 +21,6 @@
 figure{
     display: inline-block;
 }
-figcaption{
-    display: none;
-}
 section ul li{
     display: inline;
 }
@@ -45,8 +42,9 @@ hr{
     border-radius: 10px;
     padding: 10px;
     width: 100%;
+    margin-bottom: 10px;
 }
-.list-img{
+.list-container img{
     float: left;
     margin-right: 15px;
 }
@@ -66,6 +64,14 @@ hr{
 }
 .food-pic{
     width: 33.3%;
+    height: 190px;
+    object-fit: cover;
+    padding-right: 10px;
+    padding-bottom: 7px;
+    box-sizing: border-box;
+}
+.food-pic-list{
+    width: 315px;
     height: 190px;
     object-fit: cover;
     padding-right: 10px;
