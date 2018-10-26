@@ -1,5 +1,5 @@
 header {
-  background-color: #2222;
+  background-image: url('../images/gallerydefault.jpg');
   width: 100%;
   height: 180px;
   padding: 10px;
@@ -12,6 +12,7 @@ header div {
 }
 
 #header-logo {
+  color: azure;
   text-align: center;
 }
 
@@ -34,14 +35,55 @@ section {
   float: right;
 }
 
-#how-to-use {
-  
-}
-
-figure {
-  display: inline-block;
+#app-about div {
+  padding-top: 50px;
 }
 
 figure img {
   border-radius: 50%;
 }
+
+#how-to-use figure {
+  display: inline-block;
+  width: 230px;
+  text-align: center;
+}
+
+#how-to-use img {
+  margin: 15px;
+}
+
+#about-the-team figure {
+  display: inline-block;
+  text-align: center;
+  width: 155px;
+}
+
+#about-the-team h2 {
+  float: left;
+  /* height: 20px;
+  margin-bottom: 30px; */
+}
+
+footer {
+  background-image: url(../images/gallerydefault.jpg);
+  width: 100%;
+  height: 150px;
+  color: azure;
+}
+
+footer section {
+  width: 960px;
+}
+
+footer div {
+  display: inline-block;
+  width: 230px;
+}
+
+#footer-logo img {
+  width: 30px;
+  height: 30px;
+}
+
+
