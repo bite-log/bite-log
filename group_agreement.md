@@ -43,3 +43,5 @@ Git Process:
 - If there are any conflicts, communicate with one another to ensure that the latest and greatest is being incorporated.
 - Anytime you stop coding, A-C-P
 - Always pull to local before you start coding
+- Pull when starting group coding, and then pull when finishing group coding.
+- When you have approved a significant merge, notify the group via Slack.
