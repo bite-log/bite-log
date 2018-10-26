@@ -10,10 +10,9 @@
 #grid-icon:hover, #list-icon:hover{
     color: #7CD6F1;
 }
-#icon-selected{
-    color:  #7CD6F1;
+.icon-selected{
+    color:  #7CD6F1 !important;
 }
-
 #gallery-view{
     margin: 20px auto;
     text-align: center;
@@ -59,7 +58,7 @@ hr{
 .float{
     float: left;
 }
-.float-right{
+#view-icons{
     float: right;
 }
 .food-pic{

@@ -66,20 +66,8 @@ BiteLogEntry.prototype.renderSingleList = function(){
   figureEl.appendChild(imgEl);
   figureEl.appendChild(figCapEl);
   figCapEl.appendChild(h5El);
-  
 };
 
-var renderGallery = function () {
-  for (var i in biteLogEntryArray) {
-    biteLogEntryArray[i].renderSingleEntry();
-  }
-};
-
-var renderList = function(){
-  for (var i in biteLogEntryArray) {
-    biteLogEntryArray[i].renderSingleList();
-  }
-};
 
 //============Test Entries==================
 
@@ -89,9 +77,3 @@ new BiteLogEntry('Pot Roast', 'Pot Roast City', 'Comfort Food', './assets/potroa
 new BiteLogEntry('Chili', 'Chiliville', 'Comfort Food', './assets/chili.jpg', '2', false, 'good, not great');
 new BiteLogEntry('zoodles', 'Oodles O Noodles', 'Vegetarian', './assets/zoodles.jpg', '1', false, 'watery');
 new BiteLogEntry('cake', 'Just Cakes', 'Dessert', './assets/cake.jpg', '5', true, 'so moist');
-
-//==========Function Calls=================
-
-renderGallery();
-renderList();
-
