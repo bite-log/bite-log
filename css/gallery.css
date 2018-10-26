@@ -1,0 +1,59 @@
+body{
+    font-family: 'Karla', Arial, Helvetica, sans-serif;
+    color: #3F4D51;
+}
+header{
+    background-image: url('../images/gallerydefault.jpg');
+    height: 350px;
+    width: 100%;
+}
+h1{
+    font-family: 'Poppins', Arial, Helvetica, sans-serif;
+    font-size: 36pt;
+    font-weight: bold;
+    text-align: center;
+    color: white;
+}
+a{
+    text-decoration: none;
+    color: #7CD6F1;
+}
+h2{
+    font-family: 'Poppins', Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 18pt;
+    color: #40A4C4;
+    margin-bottom: 20px;
+}
+h4{
+    text-align: center;
+    padding: 10px;
+}
+h5{
+
+}
+#gallery-view{
+    margin-top: 20px;
+}
+figure{
+    display: inline-block;
+}
+figcaption{
+    display: none;
+}
+section{
+    background-color: white;
+    width: 960px;
+    margin: auto;
+    padding: 25px;
+}
+section ul li{
+    display: inline;
+}
+footer{
+    padding: 20px;
+    width: 100%;
+    box-sizing: border-box;
+    color: white;
+    background: url() #3F4D51;
+}
