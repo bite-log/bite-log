@@ -3,7 +3,8 @@ body{
   color: #3F4D51;
 }
 header {
-  background-image: url('../images/gallerydefault.jpg');
+  background-image: url('../images/gallery.jpg');
+  background-size: 100%;
   width: 100%;
   opacity: 0.8;
   height: 350px;
@@ -43,7 +44,7 @@ h5{
   margin-bottom: 10px;
 }
 p{
-  margin-bottom: 20px;
+  margin-top: 20px;
 }
 
 /*Link and hover styling*/
@@ -70,15 +71,35 @@ main {
   padding: 25px;
   background-color: white;
 }
-
+hr{
+  height: 1px;
+  background-color: #3F4D51;
+}
 /*Form styling*/
 input{
-  display: block;
   margin-bottom: 5px;
+  width: 88%;
+  height: 30px;
+  border-radius: 5px;
+  border: 1px solid gray;
+  padding: 3px;
+  font-family: 'Karla', Arial, Helvetica, sans-serif;
+}
+button{
+  height: 40px;
+  width: 8%;
+  border-radius: 5px;
+  background-color: #D55548;
+  border: none;
+  color: white;
+  opacity: 0.6;
+  transition: 0.3s;
+}
+button:hover{
+  opacity: 1;
 }
 #login-form {
-  width: 45%;
-  margin-top: 115px;
+  width: 50%;
   float: right;
 }
 fieldset{
@@ -86,10 +107,17 @@ fieldset{
   border-radius: 10px;
   padding: 15px;
 }
+#login img{
+  object-fit: cover;
+  width: 45%;
+  height: 250px;
+  border-radius: 10px;
+}
 
 #app-about img {
   float: right;
   clear: both;
+  border-radius: 10px;
   width: 350px;
   height: 250px;
   margin: 0 0 20px 20px;
@@ -103,7 +131,7 @@ fieldset{
   border-radius: 50%;
 }
 #how-to-use{
-  background: url('../images/diagonalbg.jpg');
+  background-color: #ededed;
   border-radius: 10px;
   border: 2px solid lightgray;
   margin: 30px auto;
@@ -147,7 +175,7 @@ fieldset{
 footer{
   padding: 20px;
   width: 100%;
-  box-sizing: content-box;
+  box-sizing: border-box;
   color: white;
   background:#3F4D51;
 }
@@ -166,5 +194,3 @@ footer div {
   width: 30px;
   height: 30px;
 }
-
-

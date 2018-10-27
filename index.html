@@ -31,24 +31,23 @@
 
     <main>
         <!--Login Section-->
-        <section>
-            <img src="https://placehold.it/350x275/222" alt="Foodie Pic">
+        <section id="login">
+            <img src="./images/food-friends.jpg" alt="Foodie Pic">
 
             <form id="login-form">
                 <h2>login</h2>
                     <fieldset>
             
-                    <input type="user-name" value="username" type="text"/>
-                    <input type="favorite-spice" value="favorite spice" type="text"/>
+                    <input type="user-name" value="username" onfocus="this.value=''" type="text"/>
+                    <input type="favorite-spice" value="favorite spice" onfocus="this.value=''" type="text"/>
             
-                    <button type="submit">enter</button>
-            
+                    <button type="submit"><i class="fas fa-sign-in-alt"></i></button>
+                    <p>New to bite.log? <a href="newuser.html" alt="Create a new profile">Click here</a> to create a new profile.</p>
                     </fieldset>
             
                 </form>
-
         </section>
-
+        <hr>
         <!--About the app-->
         <section id="app-about">
             <img src="./images/food-phone.jpg" alt="2nd Foodie Pic">
