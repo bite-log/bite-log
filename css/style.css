@@ -106,14 +106,21 @@ button:hover{
   width: 50%;
   float: right;
 }
+
 #add-log-form {
   width: 960px;
   margin: auto;
+
+.login-required{
+  color: #D55548;
+  font-weight: bold;
+
 }
 fieldset{
   border: 1px solid lightgray;
   border-radius: 10px;
   padding: 15px;
+  margin-top: 10px;
 }
 #url-food-pic {
   text-align: right;

@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>bite.log [we're made pho each other] - home</title>
+    <link rel="icon" href="favicon.ico" type="image/png" sizes="16x16">
     <link href="./css/reset.css" type="text/css" rel="stylesheet">
     <link href="./css/style.css" type="text/css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Poppins|Karla" rel="stylesheet">
@@ -16,9 +17,9 @@
         <div id="nav">
             <nav>
                 <ul>
-                    <li><a href="index.html" alt="home"><i class="fas fa-home"></i></a></li>
-                    <li><a href="gallery.html" alt="food log"><img id="nav-logo" src="./images/logo.png" alt="bite.log logo"></a></li>
-                    <li><a href="add.html" alt="add log"><i class="fas fa-plus-square"></i></a></li>
+                    <li><a id="home" alt="home" onclick="loginRedirect()"><i class="fas fa-home"></i></a></li>
+                    <li><a id="gallery" alt="food log" onclick="loginRedirect()"><img id="nav-logo" src="./images/logo.png" alt="bite.log logo"></a></li>
+                    <li><a id="add" alt="add log" onclick="loginRedirect()"><i class="fas fa-plus-square"></i></a></li>
                 </ul>
             </nav>
         </div>
@@ -33,19 +34,18 @@
         <!--Login Section-->
         <section id="login">
             <img src="./images/food-friends.jpg" alt="Foodie Pic">
-
+            
             <form id="login-form">
-                <h2>login</h2>
-                    <fieldset>
-            
-                    <input type="user-name" value="username" onfocus="this.value=''" type="text"/>
-                    <input type="favorite-spice" value="favorite spice" onfocus="this.value=''" type="text"/>
-            
-                    <button type="submit"><i class="fas fa-sign-in-alt"></i></button>
-                    <p>New to bite.log? <a href="newuser.html" alt="Create a new profile">Click here</a> to create a new profile.</p>
-                    </fieldset>
-            
-                </form>
+            <h2>login</h2>
+                <fieldset>
+        
+                <input name="username" placeholder="username" type="text"/>
+                <input name="favspice" placeholder="favorite spice" type="password"/>
+        
+                <button type="submit"><i class="fas fa-sign-in-alt"></i></button>
+                <p>New to bite.log? <a href="newuser.html" alt="Create a new profile">Click here</a> to create a new profile.</p>
+                </fieldset>
+            </form>
         </section>
         <hr>
         <!--About the app-->
@@ -131,6 +131,6 @@
             </div>
         </section>
     </footer>
-
+<script src="./js/app.js"></script>
 </body>
 </html>
