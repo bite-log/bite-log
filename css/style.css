@@ -54,6 +54,12 @@ a:hover{
   color: azure;
   text-align: center;
 }
+nav li {
+  display: inline-block;
+}
+#nav-logo {
+  width: 17px;
+}
 main {
   width: 960px;
   margin: auto;
