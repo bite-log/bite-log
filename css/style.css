@@ -127,13 +127,20 @@ fieldset{
 #about-the-team figure {
   display: inline-block;
   text-align: center;
-  width: 24%;
+  width: 33%;
 }
 
 #about-the-team h2 {
   height: 20px;
   display: block;
   margin-bottom: 30px;
+}
+
+#about-the-team img {
+  margin: 15px;
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
 }
 
 /*Footer styling*/
