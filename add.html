@@ -4,9 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>bite.log [we're made pho each other] - add new log</title>
+    <title>bite.log [we're made pho each other] - home</title>
     <link href="./css/reset.css" type="text/css" rel="stylesheet">
     <link href="./css/style.css" type="text/css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Poppins|Karla" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
 </head>
 <body>
     <!--Header and Navigation-->
@@ -14,9 +16,9 @@
         <div id="nav">
             <nav>
                 <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="gallery.html">Bite log</a></li>
-                    <li><a href="add.html">Add Log</a></li>
+                    <li><a href="index.html" alt="home"><i class="fas fa-home"></i></a></li>
+                    <li><a href="gallery.html" alt="food log"><img id="nav-logo" src="./images/logo.png" alt="bite.log logo"></a></li>
+                    <li><a href="add.html" alt="add log"><i class="fas fa-plus-square"></i></a></li>
                 </ul>
             </nav>
         </div>
@@ -25,8 +27,31 @@
     </header>
 
     <!--Add Log-->
-    <section>
-        
+    <section id="add-log">
+        <form id="add-log-form">
+            <fieldset>
+                <h2> add food log</h2>
+                <div id="url-food-pic">
+                    <img src="./images/camera-2008479_640.png" alt="Camera Icon">
+                    <input type="text" name="url" placeholder="photo url">
+                    <button type="submit"><i class="fas fa-sign-in-alt"></i></button>
+                </div>
+                <div id="food-log-input">
+                    <input type="menu-item" placeholder="menu item" type="text"/>
+                    <input type="restaurant-name" placeholder="restaurant name" type="text"/>
+                    <input type="food-category" placeholder="food category" type="text"/>
+                    <div id="fav-rating">
+                        <label for="checkbox">favorite</label>
+                        <input id="checkbox" type="checkbox" name="favorite" value="yes"></p>
+                        <label for="rating">rating</label>
+                        <input type="range" id="rating" name="rating" min="0" max="5">
+                    </div>
+                    <input type="comments" placeholder="comments" type="text"/>
+                    <button type="submit"><i class="fas fa-sign-in-alt"></i></button>
+                    <p>New to bite.log? <a href="newuser.html" alt="Create a new profile">Click here</a> to create a new profile.</p>
+                </div>
+            </fieldset>
+        </form>
     </section>
     
 
