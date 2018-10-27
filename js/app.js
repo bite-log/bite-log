@@ -30,11 +30,9 @@ var BiteLogEntry = function(dish, restaurant, category, src, rating, isFav, comm
   this.isFavorite = isFav;
   this.comment = comment;
 
-  biteLogEntryArray.push(this);
+  biteLogEntryArray.unshift(this);
   restaurantArray.push(this.restaurant);
 };
-
-console.log('this should be bitelot', BiteLogEntry);
 
 BiteLogEntry.prototype.renderSingleEntry = function (){
   var imgEl = document.createElement('img');
@@ -55,7 +53,7 @@ BiteLogEntry.prototype.renderSingleList = function(){
   var commentEl = document.createElement('p');
 
   //Setting attributes
-  figureEl.setAttribute('class', 'list-container')
+  figureEl.setAttribute('class', 'list-container');
   figCapEl.setAttribute('class', 'list-caption');
   imgEl.setAttribute('class', 'food-pic-list');
 
