@@ -5,15 +5,19 @@
     width: 100%;
 }
 
+.user-profile figure{
+    margin-left: 45%;
+}
+
 #user-profilepic{
     clear: both;
     border-radius: 200px;
     width: 150px;
     height: 150px;
-    margin: 0 0 20px 20px;
 }
 
 #user-name{
+    text-align: center;
     color: magenta;
 }
 
