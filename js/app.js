@@ -5,9 +5,11 @@
 var categoryArray = ['Chinese', 'Japanese', 'Vietnamese', 'Korean', 'Thai', 'Greek', 'Mexican', 'Mediterranean', 'Cocktail Bars', 'Food Truck', 'Italian', 'French', 'Fast Food', 'Fast Casual', 'Fine Dining', 'Pub', 'Coffee & Tea', 'Dessert', 'Barbecue', 'Buffet', 'Seafood', 'Deli', 'American', 'Pizza', 'Vegan', 'Tapas/Small Plates', 'Breakfast & Brunch'];
 var restaurantArray = [];
 var biteLogEntryArray = [];
+var userProfileArray = [];
 
 var galleryView = document.getElementById('gallery-view');
 var listView = document.getElementById('list-view');
+var newUserForm = document.getElementById('newuser-form');
 
 //==========Constructor Functions==========
 
@@ -18,6 +20,8 @@ var UserProfile = function (username, spice, src) {
 
   this.uniqueRestaurauntCount = 0;
   this.uniqueEntryArray = 0;
+
+  userProfileArray.push(this);
 };
 
 var BiteLogEntry = function(dish, restaurant, category, src, rating, isFav, comment) {
@@ -95,6 +99,18 @@ BiteLogEntry.prototype.renderSingleList = function(){
   figCapEl.appendChild(commentEl);
 };
 
+//=============Event Handlers===============
+var createNewUserHandler = function(event){
+  console.log(event);
+  event.preventDefault();
+  var name = event.target.name.value;
+  var spice = event.target.spice.value;
+  var src = event.target.profilepic.value;
+
+  console.log(name + spice + src);
+
+  new UserProfile(name, spice, src);
+};
 
 //============Test Entries==================
 
@@ -104,3 +120,7 @@ new BiteLogEntry('Pot Roast', 'Pot Roast City', 'Comfort Food', './assets/potroa
 new BiteLogEntry('Chili', 'Chiliville', 'Comfort Food', './assets/chili.jpg', 2, false, 'good, not great');
 new BiteLogEntry('zoodles', 'Oodles O Noodles', 'Vegetarian', './assets/zoodles.jpg', 1, false, 'watery');
 new BiteLogEntry('cake', 'Just Cakes', 'Dessert', './assets/cake.jpg', 5, true, 'so moist');
+
+//===========Function Calls================
+
+newUserForm.addEventListener('submit', createNewUserHandler);

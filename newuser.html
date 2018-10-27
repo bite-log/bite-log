@@ -5,8 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>bite.log [we're made pho each other] - home</title>
+    <link rel="icon" href="favicon.ico" type="image/png" sizes="16x16">
     <link href="./css/reset.css" type="text/css" rel="stylesheet">
     <link href="./css/style.css" type="text/css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Poppins|Karla" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
 </head>
 <body>
     <!--Header and Navigation-->
@@ -25,30 +28,58 @@
     </header>
 
     <!--Create new user profile-->
-    <section>
+    <main>
+        <section>
+            <h2>Create a New Profile</h2>
+            <form id="newuser-form">
+                <fieldset>
+                    <div>
+                        <img src="./images/blankprofilepic.png">
+                        <input name="profilepic" placeholder="profile picture URL" type="text"/>
+                    </div>
+                    <div>
+                        <input name="name" placeholder="username" type="text"/>
+                        <input name="spice" placeholder="favorite spice" type="text"/>
+                        <button type="submit"><i class="fas fa-sign-in-alt"></i></button>
+                    </div>
+                </fieldset>
         
-    </section>
+            </form>
+        </section>
+    </main>
     
 
     <!--Footer-->
     <footer>
-        <div class="logo">
-            <img src="">
-            <h5>bite.log</h5>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="gallery.html">Bite log</a></li>
-                <li><a href="add.html">Add Log</a></li>
-            </ul>
-            &copy; 2018 bite.log
-        </div>
-        <div>
-            <h3>Top Rated</h3>
-        </div>
-        <div>
-            <h3>Friends List</h3>
-        </div>
+        <section>
+            <div id="footer-logo"> 
+                <img src="./images/logo.png">
+                <h5>bite.log</h5>
+                <ul>
+                    <li><a href="index.html">home</a></li>
+                    <li><a href="gallery.html">bite log</a></li>
+                    <li><a href="add.html">add log</a></li>
+                </ul>
+                &copy; 2018 bite.log
+            </div>
+            <div>
+                <h3>top rated</h3>
+                <ol>
+                    <li>pho</li>
+                    <li>hamburgers</li>
+                    <li>potatoes</li>
+                </ol>
+            </div>
+            <div>
+                <h3>friends list</h3>
+                <ol>
+                    <li>Julia Child</li>
+                    <li>Martha Stewart</li>
+                    <li>Nigella Lawson</li>
+                </ol>
+            </div>
+        </section>
     </footer>
-
+<script src="./js/app.js"></script>
 </body>
 </html>
