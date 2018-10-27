@@ -43,6 +43,7 @@ var renderList = function(){
     biteLogEntryArray[i].renderSingleList();
   }
 };
+
 renderGallery();
 viewIconSection.addEventListener('click', changeViewHandler);
 changeViewHandler;
