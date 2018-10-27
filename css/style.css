@@ -98,14 +98,44 @@ button{
 button:hover{
   opacity: 1;
 }
+#add-log {
+  height: 400px;
+  margin-top: 15px; 
+}
 #login-form {
   width: 50%;
   float: right;
+}
+#add-log-form {
+  width: 960px;
+  margin: auto;
 }
 fieldset{
   border: 1px solid lightgray;
   border-radius: 10px;
   padding: 15px;
+}
+#url-food-pic {
+  text-align: right;
+  float: left;
+  width: 33%;
+}
+#food-log-input {
+  float: right;
+  width: 60%;
+}
+#url-food-pic img {
+  width: 80%;
+  border-radius: 10px;
+}
+#url-food-pic input {
+  width: 68%;
+}
+#fav-rating {
+  display: inline-block;
+}
+#rating {
+  width: 50%;
 }
 #login img{
   object-fit: cover;
@@ -113,7 +143,6 @@ fieldset{
   height: 250px;
   border-radius: 10px;
 }
-
 #app-about img {
   float: right;
   clear: both;
