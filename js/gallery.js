@@ -45,5 +45,5 @@ var renderList = function(){
 };
 renderGallery();
 viewIconSection.addEventListener('click', changeViewHandler);
-changeViewHandler();
+changeViewHandler;
 
