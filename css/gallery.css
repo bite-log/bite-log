@@ -10,18 +10,15 @@
 #grid-icon:hover, #list-icon:hover{
     color: #7CD6F1;
 }
-#icon-selected{
-    color:  #7CD6F1;
+.icon-selected{
+    color:#40A4C4 !important;
 }
-
 #gallery-view{
-    margin-top: 20px;
+    margin: 20px auto;
+    text-align: center;
 }
 figure{
     display: inline-block;
-}
-figcaption{
-    display: none;
 }
 section ul li{
     display: inline;
@@ -44,8 +41,9 @@ hr{
     border-radius: 10px;
     padding: 10px;
     width: 100%;
+    margin-bottom: 10px;
 }
-.list-img{
+.list-container img{
     float: left;
     margin-right: 15px;
 }
@@ -60,6 +58,22 @@ hr{
 .float{
     float: left;
 }
-.float-right{
+#view-icons{
     float: right;
+}
+.food-pic{
+    width: 33.3%;
+    height: 190px;
+    object-fit: cover;
+    padding-right: 10px;
+    padding-bottom: 7px;
+    box-sizing: border-box;
+}
+.food-pic-list{
+    width: 315px;
+    height: 190px;
+    object-fit: cover;
+    padding-right: 10px;
+    padding-bottom: 7px;
+    box-sizing: border-box;
 }

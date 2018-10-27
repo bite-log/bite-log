@@ -81,7 +81,7 @@ fieldset{
   padding-top: 50px;
 }
 
-figure img {
+#about-the-team figure img, #how-to-use figure img {
   border-radius: 50%;
 }
 #how-to-use{
