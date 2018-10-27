@@ -106,15 +106,13 @@ button:hover{
   width: 50%;
   float: right;
 }
-
 #add-log-form {
   width: 960px;
   margin: auto;
-
+}
 .login-required{
   color: #D55548;
   font-weight: bold;
-
 }
 fieldset{
   border: 1px solid lightgray;
@@ -158,11 +156,9 @@ fieldset{
   height: 250px;
   margin: 0 0 20px 20px;
 }
-
 #app-about div {
   margin: 20px auto;
 }
-
 #about-the-team figure img, #how-to-use figure img {
   border-radius: 50%;
 }
