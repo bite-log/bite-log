@@ -71,7 +71,10 @@ main {
   padding: 25px;
   background-color: white;
 }
-
+hr{
+  height: 1px;
+  background-color: #3F4D51;
+}
 /*Form styling*/
 input{
   margin-bottom: 5px;
@@ -104,16 +107,17 @@ fieldset{
   border-radius: 10px;
   padding: 15px;
 }
-
 #login img{
   object-fit: cover;
   width: 45%;
   height: 250px;
+  border-radius: 10px;
 }
 
 #app-about img {
   float: right;
   clear: both;
+  border-radius: 10px;
   width: 350px;
   height: 250px;
   margin: 0 0 20px 20px;
@@ -164,7 +168,7 @@ fieldset{
 footer{
   padding: 20px;
   width: 100%;
-  box-sizing: content-box;
+  box-sizing: border-box;
   color: white;
   background:#3F4D51;
 }
@@ -183,5 +187,3 @@ footer div {
   width: 30px;
   height: 30px;
 }
-
-
