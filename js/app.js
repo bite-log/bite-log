@@ -35,9 +35,15 @@ var BiteLogEntry = function(dish, restaurant, category, src, rating, isFav, comm
 };
 
 BiteLogEntry.prototype.renderSingleEntry = function (){
+  var gridfigureEl = document.createElement('gridfigure');
   var imgEl = document.createElement('img');
+
+  gridfigCapEl.setAttribute('class', 'overlay');
   imgEl.setAttribute('class', 'food-pic');
+
   imgEl.src = this.src;
+
+  galleryView.appendChild(gridfigureEl);
   galleryView.appendChild(imgEl);
 };
 
