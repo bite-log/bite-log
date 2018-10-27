@@ -28,6 +28,7 @@ h2{
   font-weight: bold;
   font-size: 18pt;
   color: #40A4C4;
+  text-transform: lowercase;
   margin-bottom: 20px;
 }
 h4{
@@ -40,6 +41,9 @@ h5{
   font-family: 'Poppins', Arial, Helvetica, sans-serif;
   font-weight: bold;
   margin-bottom: 10px;
+}
+p{
+  margin-bottom: 20px;
 }
 
 /*Link and hover styling*/
@@ -62,6 +66,10 @@ main {
 }
 
 /*Form styling*/
+input{
+  display: block;
+  margin-bottom: 5px;
+}
 #login-form {
   width: 45%;
   margin-top: 115px;
@@ -75,38 +83,50 @@ fieldset{
 
 #app-about img {
   float: right;
+  clear: both;
+  width: 350px;
+  height: 250px;
+  margin: 0 0 20px 20px;
 }
 
 #app-about div {
-  padding-top: 50px;
+  margin: 20px auto;
 }
 
 #about-the-team figure img, #how-to-use figure img {
   border-radius: 50%;
 }
 #how-to-use{
-  background-color: lightgray;
+  background: url('../images/diagonalbg.jpg');
+  border-radius: 10px;
+  border: 2px solid lightgray;
+  margin: 30px auto;
   clear: both;
+  padding: 20px;
 }
 #how-to-use figure {
   display: inline-block;
-  width: 230px;
+  width: 33%;
   text-align: center;
 }
 
 #how-to-use img {
   margin: 15px;
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border: 3px solid lightgray;
 }
 
 #about-the-team figure {
   display: inline-block;
   text-align: center;
-  width: 155px;
+  width: 24%;
 }
 
 #about-the-team h2 {
-  float: left;
   height: 20px;
+  display: block;
   margin-bottom: 30px;
 }
 
@@ -114,9 +134,9 @@ fieldset{
 footer{
   padding: 20px;
   width: 100%;
-  box-sizing: border-box;
+  box-sizing: content-box;
   color: white;
-  background: url() #3F4D51;
+  background:#3F4D51;
 }
 
 footer section {
