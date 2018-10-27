@@ -7,9 +7,12 @@ var restaurantArray = [];
 var biteLogEntryArray = [];
 var userProfileArray = [];
 
+var loggedIn = false;
+
 var galleryView = document.getElementById('gallery-view');
 var listView = document.getElementById('list-view');
 var newUserForm = document.getElementById('newuser-form');
+var loginForm = document.getElementById('login-form');
 
 //==========Constructor Functions==========
 
@@ -106,10 +109,38 @@ var createNewUserHandler = function(event){
   var name = event.target.name.value;
   var spice = event.target.spice.value;
   var src = event.target.profilepic.value;
-
   console.log(name + spice + src);
 
   new UserProfile(name, spice, src);
+  localStorage.setItem('users', JSON.stringify(userProfileArray));
+};
+
+var loginHandler = function(event){
+  event.preventDefault();
+
+  var name = event.target.username.value;
+  var spice = event.target.favspice.value;
+
+  for (var i in userProfileArray){
+    console.log(name + spice);
+    if (name === userProfileArray[i].userName && spice === userProfileArray[i].spice){
+      loggedIn = true;
+    } 
+  }
+}
+
+var loginRedirect = function(){
+  if (loggedIn === false){
+    var login = document.getElementById('login-form');
+    var textEl = document.createElement('span');
+    textEl.setAttribute('class', 'login-required')
+    textEl.textContent = 'You must be logged in to continue.';
+    login.insertBefore(textEl, login.children[1]);
+  } else if (document.getElementById('gallery').onclick){
+    window.location.href = 'gallery.html';
+  } else if (document.getElementById('add').onclick){
+    window.location.href = 'add.html';
+  }
 };
 
 //============Test Entries==================
@@ -123,4 +154,15 @@ new BiteLogEntry('cake', 'Just Cakes', 'Dessert', './assets/cake.jpg', 5, true, 
 
 //===========Function Calls================
 
-newUserForm.addEventListener('submit', createNewUserHandler);
+//Local storage
+var grabUser = function(){
+  if (localStorage.getItem('users')){
+    console.log('true, local storage exists');
+    userProfileArray = JSON.parse(localStorage.getItem('users'));
+  }
+  // loggedIn = true;
+};
+
+grabUser();
+// newUserForm.addEventListener('submit', createNewUserHandler);
+loginForm.addEventListener('submit', loginHandler);
