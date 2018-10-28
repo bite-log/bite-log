@@ -122,6 +122,7 @@ button:hover{
 .login-required{
   color: #D55548;
   font-weight: bold;
+  padding-bottom: 10px;
 }
 fieldset{
   border: 1px solid lightgray;

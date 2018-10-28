@@ -153,6 +153,17 @@ var renderList = function(){
   }
 };
 
+
+var renderGalleryHeader = function(){
+  var userPhotoHeader = document.getElementById('user-profilepic');
+  var userNameHeader = document.getElementById('user-name');
+  userNameHeader.textContent = currentUser.userName;
+  userPhotoHeader.src = currentUser.userImage;
+};
+
+
 renderGallery();
+renderGalleryHeader();
+
 viewIconSection.addEventListener('click', changeViewHandler);
 changeViewHandler;
