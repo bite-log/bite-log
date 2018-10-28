@@ -27,6 +27,7 @@ var UserProfile = function (username, spice, src) {
   userProfileArray.push(this);
 };
 
+
 //=============Event Handlers===============
 var createNewUserHandler = function(event){
   console.log(event);
@@ -40,6 +41,7 @@ var createNewUserHandler = function(event){
   currentUser = newUser;
   localStorage.setItem('users', JSON.stringify(userProfileArray));
   localStorage.setItem('current-user', JSON.stringify(currentUser));
+  window.location.href = 'index.html';
 };
 
 var loginHandler = function(event){
@@ -56,6 +58,7 @@ var loginHandler = function(event){
         currentUser = userProfileArray[i];
         localStorage.setItem('current-user', JSON.stringify(currentUser));
         userIsLoggedIn();
+        location.reload();
       } else{
         userDoesNotExist();
       }
@@ -90,9 +93,6 @@ var logout = function(event){
   console.log('signout clicked');
   window.location.href = 'index.html';
 };
-
-
-
 //===========Local Storage================
 var grabUser = function(){
   if (localStorage.getItem('users')){
@@ -122,13 +122,15 @@ var initialize = function(){
     newUserForm.addEventListener('submit', createNewUserHandler);
   } else if (currentUser){
     userIsLoggedIn();
-    var loginField = document.getElementById('login-field');
-    while (loginField.firstChild){
-      loginField.removeChild(loginField.firstChild);
+    if (loginForm){
+      var loginField = document.getElementById('login-field');
+      while (loginField.firstChild){
+        loginField.removeChild(loginField.firstChild);
+      }
+      var h5El = document.createElement('h5');
+      h5El.textContent = 'Welcome back ' + currentUser.userName + '!';
+      loginField.appendChild(h5El);
     }
-    var h5El = document.createElement('h5');
-    h5El.textContent = 'Welcome back ' + currentUser.userName + '!';
-    loginField.appendChild(h5El);
   }
   if (loginForm){
     loginForm.addEventListener('submit', loginHandler);

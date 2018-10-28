@@ -18,9 +18,9 @@
             <nav>
                 <ul>
                     <li><a href="index.html" id="home" alt="home"><i class="fas fa-home fa-lg"></i> Home</a></li>
-                    <li><a id="gallery" alt="food log" onclick="loginRedirect"><i class="fas fa-cookie-bite fa-lg"> </i> Log</a></li>
-                    <li><a id="add" alt="add log" onclick="loginRedirect"><i class="fas fa-plus-square fa-lg"></i> Add</a></li>
-                    <li class="floatright"><a id="logout-button" onclick="logout"><i class="fas fa-sign-out-alt fa-lg"></i> Sign Out</a></li>
+                    <li><a href="gallery.html" alt="food log"><i class="fas fa-cookie-bite fa-lg"> </i> Log</a></li>
+                    <li><a href="add.html" id="add" alt="add log"><i class="fas fa-plus-square fa-lg"></i> Add</a></li>
+                    <li class="floatright" id="logout-button"></li>
                 </ul>
             </nav>
         </div>
@@ -39,12 +39,12 @@
             <form id="login-form">
             <h2>login</h2>
                 <fieldset id="login-field">
-        
-                <input name="username" placeholder="username" type="text"/>
-                <input name="favspice" placeholder="favorite spice" type="password"/>
-        
-                <button type="submit"><i class="fas fa-sign-in-alt"></i></button>
-                <p>New to bite.log? <a href="newuser.html" alt="Create a new profile">Click here</a> to create a new profile.</p>
+                    <span id="error-message"></span>
+                    <input name="username" placeholder="username" type="text"/>
+                    <input name="favspice" placeholder="favorite spice" type="password"/>
+            
+                    <button type="submit"><i class="fas fa-sign-in-alt"></i></button>
+                    <p>New to bite.log? <a href="newuser.html" alt="Create a new profile">Click here</a> to create a new profile.</p>
                 </fieldset>
             </form>
         </section>
