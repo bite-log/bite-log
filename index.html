@@ -17,9 +17,10 @@
         <div id="nav">
             <nav>
                 <ul>
-                    <li><a id="home" alt="home" onclick="loginRedirect()"><i class="fas fa-home"></i></a></li>
-                    <li><a id="gallery" alt="food log" onclick="loginRedirect()"><img id="nav-logo" src="./images/logo.png" alt="bite.log logo"></a></li>
-                    <li><a id="add" alt="add log" onclick="loginRedirect()"><i class="fas fa-plus-square"></i></a></li>
+                    <li><a href="index.html" id="home" alt="home"><i class="fas fa-home fa-lg"></i> Home</a></li>
+                    <li><a id="gallery" alt="food log" onclick="loginRedirect"><i class="fas fa-cookie-bite fa-lg"> </i> Log</a></li>
+                    <li><a id="add" alt="add log" onclick="loginRedirect"><i class="fas fa-plus-square fa-lg"></i> Add</a></li>
+                    <li class="floatright"><a id="logout-button" onclick="logout"><i class="fas fa-sign-out-alt fa-lg"></i> Sign Out</a></li>
                 </ul>
             </nav>
         </div>
@@ -37,7 +38,7 @@
             
             <form id="login-form">
             <h2>login</h2>
-                <fieldset>
+                <fieldset id="login-field">
         
                 <input name="username" placeholder="username" type="text"/>
                 <input name="favspice" placeholder="favorite spice" type="password"/>
@@ -84,17 +85,17 @@
             <h2>about the team</h2>
             <figure>
                 <img src="./images/evy-sandwich.jpg" alt="Evy eating schneeball.">
-                <h3>Evy H</h3>
+                <h5>Evy H</h5>
                 <figcaption>Bio info here</figcaption>
             </figure>
             <figure>
                 <img src="./images/hliana-beer.jpg" alt="H'Liana drinking a beer.">
-                <h3>H'Liana N</h3>
-                <figcaption>Bio info here</figcaption>
+                <h5>H'Liana N</h5>
+                <figcaption>H'Liana's favorite food experience typically consists of</figcaption>
             </figure>
             <figure>
                 <img src="./images/jessica-hushpuppy.jpg" alt="Jessica eating hush puppies.">
-                <h3>Jessica E</h3>
+                <h5>Jessica E</h5>
                 <figcaption>Bio info here</figcaption>
             </figure>
         </section>

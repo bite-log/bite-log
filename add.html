@@ -16,14 +16,16 @@
         <div id="nav">
             <nav>
                 <ul>
-                    <li><a href="index.html" alt="home"><i class="fas fa-home"></i></a></li>
-                    <li><a href="gallery.html" alt="food log"><img id="nav-logo" src="./images/logo.png" alt="bite.log logo"></a></li>
-                    <li><a href="add.html" alt="add log"><i class="fas fa-plus-square"></i></a></li>
+                    <li><a href="index.html" id="home" alt="home"><i class="fas fa-home fa-lg"></i> Home</a></li>
+                    <li><a id="gallery" alt="food log" onclick="loginRedirect"><i class="fas fa-cookie-bite fa-lg"> </i> Log</a></li>
+                    <li><a id="add" alt="add log" onclick="loginRedirect"><i class="fas fa-plus-square fa-lg"></i> Add</a></li>
                 </ul>
             </nav>
         </div>
-        <h1>bite.log</h1>
-        <h4>every day i'm trufflin'.</h4>
+        <div id="header-logo">
+            <h1>bite.log</h1>
+            <h4>every day i'm trufflin'.</h4>
+        </div>
     </header>
 
     <!--Add Log-->
@@ -74,6 +76,6 @@
             <h3>Friends List</h3>
         </div>
     </footer>
-
+    <script src="./js/app.js"></script>
 </body>
 </html>

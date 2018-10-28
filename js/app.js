@@ -8,11 +8,14 @@ var biteLogEntryArray = [];
 var userProfileArray = [];
 
 var loggedIn = false;
+var currentUser;
 
 var galleryView = document.getElementById('gallery-view');
 var listView = document.getElementById('list-view');
 var newUserForm = document.getElementById('newuser-form');
 var loginForm = document.getElementById('login-form');
+var navigation = document.getElementById('nav');
+var logoutButton = document.getElementById('logout-button');
 
 //==========Constructor Functions==========
 
@@ -125,22 +128,51 @@ var loginHandler = function(event){
     console.log(name + spice);
     if (name === userProfileArray[i].userName && spice === userProfileArray[i].spice){
       loggedIn = true;
-    } 
+      currentUser = userProfileArray[i];
+      localStorage.setItem('current-user', JSON.stringify(currentUser));
+    } else{
+      var login = document.getElementById('login-form');
+      var textEl = document.createElement('span');
+      textEl.setAttribute('class', 'login-required')
+      textEl.textContent = 'User does not exist. Please create profile to continue.';
+      login.insertBefore(textEl, login.children[1]);
+    }
   }
-}
+  userIsLoggedIn();
+};
 
-var loginRedirect = function(){
-  if (loggedIn === false){
+var userIsLoggedIn = function(){
+  loggedIn = true;
+  if (loggedIn === true || currentUser){
+    var loginField = document.getElementById('login-field');
+    while (loginField.firstChild){
+      loginField.removeChild(loginField.firstChild);
+    }
+    var h5El = document.createElement('h5');
+    h5El.textContent = 'Welcome back ' + currentUser.userName + '!';
+    loginField.appendChild(h5El);
+  }
+};
+
+var loginRedirect = function(event){
+  if (event.target.id === 'gallery'){
+    window.location.href = 'gallery.html';
+  } else if (event.target.id === 'add'){
+    window.location.href = 'add.html';
+  } else if (loggedIn === false){
     var login = document.getElementById('login-form');
     var textEl = document.createElement('span');
     textEl.setAttribute('class', 'login-required')
     textEl.textContent = 'You must be logged in to continue.';
     login.insertBefore(textEl, login.children[1]);
-  } else if (document.getElementById('gallery').onclick){
-    window.location.href = 'gallery.html';
-  } else if (document.getElementById('add').onclick){
-    window.location.href = 'add.html';
-  }
+  } 
+};
+
+var logout = function(event){
+  localStorage.removeItem('current-user');
+  loggedIn = false;
+  console.log('signout clicked');
+  window.location.href = 'index.html';
 };
 
 //============Test Entries==================
@@ -159,10 +191,19 @@ var grabUser = function(){
   if (localStorage.getItem('users')){
     console.log('true, local storage exists');
     userProfileArray = JSON.parse(localStorage.getItem('users'));
+    currentUser = JSON.parse(localStorage.getItem('current-user'));
   }
-  // loggedIn = true;
 };
 
 grabUser();
-// newUserForm.addEventListener('submit', createNewUserHandler);
-loginForm.addEventListener('submit', loginHandler);
+navigation.addEventListener('click', loginRedirect);
+logoutButton.addEventListener('click', logout);
+
+if (newUserForm){
+  newUserForm.addEventListener('submit', createNewUserHandler);
+} else if (loginForm){
+  loginForm.addEventListener('submit', loginHandler);
+  if (loggedIn){
+    userIsLoggedIn();
+  }
+}
