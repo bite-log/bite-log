@@ -7,6 +7,9 @@ var restaurantArray = [];
 var biteLogEntryArray = [];
 var userProfileArray = [];
 
+var bitesCount = 0;
+// var uniqueRestaurauntCount = 0;
+
 var loggedIn = false;
 var currentUser;
 
@@ -24,9 +27,6 @@ var UserProfile = function (username, spice, src) {
   this.spice = spice;
   this.userImage = src;
 
-  this.uniqueRestaurauntCount = 0;
-  this.uniqueEntryArray = 0;
-
   userProfileArray.push(this);
 };
 
@@ -42,6 +42,14 @@ var BiteLogEntry = function(dish, restaurant, category, src, rating, isFav, comm
 
   biteLogEntryArray.unshift(this);
   restaurantArray.push(this.restaurant);
+  bitesCount++;
+  console.log(bitesCount);
+  this.renderBitesCount();
+};
+
+BiteLogEntry.prototype.renderBitesCount = function (){
+  var biteCountEl = document.getElementById('bite-count');
+  biteCountEl.textContent = bitesCount;
 };
 
 BiteLogEntry.prototype.renderSingleEntry = function (){
