@@ -122,16 +122,16 @@ var initialize = function(){
     newUserForm.addEventListener('submit', createNewUserHandler);
   } else if (currentUser){
     userIsLoggedIn();
-    if (loginForm){
-      loginForm.addEventListener('submit', loginHandler);
-      var loginField = document.getElementById('login-field');
-      while (loginField.firstChild){
-        loginField.removeChild(loginField.firstChild);
-      }
-      var h5El = document.createElement('h5');
-      h5El.textContent = 'Welcome back ' + currentUser.userName + '!';
-      loginField.appendChild(h5El);
+    var loginField = document.getElementById('login-field');
+    while (loginField.firstChild){
+      loginField.removeChild(loginField.firstChild);
     }
+    var h5El = document.createElement('h5');
+    h5El.textContent = 'Welcome back ' + currentUser.userName + '!';
+    loginField.appendChild(h5El);
+  }
+  if (loginForm){
+    loginForm.addEventListener('submit', loginHandler);
   }
 };
 
