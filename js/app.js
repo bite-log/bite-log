@@ -7,8 +7,8 @@ var uniqueRestaurantArray = [];
 var biteLogEntryArray = [];
 var userProfileArray = [];
 
-var loggedIn = false;
 var currentUser;
+var redirectLogin;
 
 var galleryView = document.getElementById('gallery-view');
 var listView = document.getElementById('list-view');
@@ -36,8 +36,10 @@ var createNewUserHandler = function(event){
   var src = event.target.profilepic.value;
   console.log(name + spice + src);
 
-  new UserProfile(name, spice, src);
+  var newUser = new UserProfile(name, spice, src);
+  currentUser = newUser;
   localStorage.setItem('users', JSON.stringify(userProfileArray));
+  localStorage.setItem('current-user', JSON.stringify(currentUser));
 };
 
 var loginHandler = function(event){
@@ -46,77 +48,92 @@ var loginHandler = function(event){
   var name = event.target.username.value;
   var spice = event.target.favspice.value;
 
-  for (var i in userProfileArray){
-    console.log(name + spice);
-    if (name === userProfileArray[i].userName && spice === userProfileArray[i].spice){
-      loggedIn = true;
-      currentUser = userProfileArray[i];
-      localStorage.setItem('current-user', JSON.stringify(currentUser));
-    } else{
-      var login = document.getElementById('login-form');
-      var textEl = document.createElement('span');
-      textEl.setAttribute('class', 'login-required')
-      textEl.textContent = 'User does not exist. Please create profile to continue.';
-      login.insertBefore(textEl, login.children[1]);
+  console.log(name + spice);
+
+  if (localStorage.getItem('users')){
+    for (var i in userProfileArray){
+      if (name === userProfileArray[i].userName && spice === userProfileArray[i].spice){
+        currentUser = userProfileArray[i];
+        localStorage.setItem('current-user', JSON.stringify(currentUser));
+        userIsLoggedIn();
+      } else{
+        userDoesNotExist();
+      }
     }
+  } else{
+    userDoesNotExist();
   }
-  userIsLoggedIn();
+};
+
+var userDoesNotExist = function(){
+  var errorMsg = document.getElementById('error-message');
+  errorMsg.setAttribute('class', 'login-required')
+  errorMsg.textContent = 'User does not exist. Please create profile to continue.';
 };
 
 var userIsLoggedIn = function(){
-  loggedIn = true;
-  if (loggedIn === true || currentUser){
-    var loginField = document.getElementById('login-field');
-    while (loginField.firstChild){
-      loginField.removeChild(loginField.firstChild);
-    }
-    var h5El = document.createElement('h5');
-    h5El.textContent = 'Welcome back ' + currentUser.userName + '!';
-    loginField.appendChild(h5El);
-  }
-};
-
-var loginRedirect = function(event){
-  if (event.target.id === 'gallery'){
-    window.location.href = 'gallery.html';
-  } else if (event.target.id === 'add'){
-    window.location.href = 'add.html';
-  } else if (loggedIn === false){
-    var login = document.getElementById('login-form');
-    var textEl = document.createElement('span');
-    textEl.setAttribute('class', 'login-required');
-    textEl.textContent = 'You must be logged in to continue.';
-    login.insertBefore(textEl, login.children[1]);
-  } 
+  //creates signout button if signed in
+  var aEl = document.createElement('a');
+  var iEl = document.createElement('i');
+  var spanEl = document.createElement('span');
+  aEl.setAttribute('id', 'logout');
+  aEl.setAttribute('onclick', 'logout');
+  iEl.setAttribute('class', 'fas fa-sign-out-alt fa-lg');
+  spanEl.textContent = ' Sign Out';
+  logoutButton.appendChild(aEl);
+  aEl.appendChild(iEl);
+  aEl.appendChild(spanEl);
 };
 
 var logout = function(event){
   localStorage.removeItem('current-user');
-  loggedIn = false;
   console.log('signout clicked');
   window.location.href = 'index.html';
 };
 
-//===========Function Calls================
 
-//Local storage
+
+//===========Local Storage================
 var grabUser = function(){
   if (localStorage.getItem('users')){
     console.log('true, local storage exists');
     userProfileArray = JSON.parse(localStorage.getItem('users'));
-    currentUser = JSON.parse(localStorage.getItem('current-user'));
+    if (localStorage.getItem('current-user')){
+      currentUser = JSON.parse(localStorage.getItem('current-user'));
+      logoutButton.addEventListener('click', logout);
+    }  
+  } 
+  if(!currentUser){
+    redirectLogin = JSON.parse(localStorage.getItem('login-redirect'));
+    if (redirectLogin === true){
+      var errorMsg = document.getElementById('error-message');
+      errorMsg.setAttribute('class', 'login-required');
+      errorMsg.textContent = 'You must be logged in to continue.';
+      redirectLogin = false;
+      localStorage.setItem('login-redirect', JSON.stringify(redirectLogin));
+    }
   }
 };
 
-grabUser();
-navigation.addEventListener('click', loginRedirect);
-logoutButton.addEventListener('click', logout);
+var initialize = function(){
+  grabUser();
 
-if (newUserForm){
-  newUserForm.addEventListener('submit', createNewUserHandler);
-} else if (loginForm){
-  loginForm.addEventListener('submit', loginHandler);
-  if (loggedIn){
+  if (newUserForm){
+    newUserForm.addEventListener('submit', createNewUserHandler);
+  } else if (currentUser){
     userIsLoggedIn();
+    if (loginForm){
+      loginForm.addEventListener('submit', loginHandler);
+      var loginField = document.getElementById('login-field');
+      while (loginField.firstChild){
+        loginField.removeChild(loginField.firstChild);
+      }
+      var h5El = document.createElement('h5');
+      h5El.textContent = 'Welcome back ' + currentUser.userName + '!';
+      loginField.appendChild(h5El);
+    }
   }
 };
+
+//===========Function Calls================
+initialize();
