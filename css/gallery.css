@@ -5,22 +5,46 @@
     width: 100%;
 }
 
+#user-info{
+    width: 960px;
+    margin: auto;
+    padding-top: 35px;
+}
+
+#bites{
+    width: 37.5%;
+    display: inline-block;
+    text-align: center;
+    vertical-align: top;
+    margin-top: 30px;
+}
+
 .user-profile figure{
-    margin-top: 50px;
-    margin-left: 42%;
+    display: center;
+    margin-left: auto;
+    margin-right: auto;
+    display: inline-block;
 }
 
 #user-profilepic{
     clear: both;
     border-radius: 200px;
-    width: 150px;
-    height: 150px;
+    width: 225px;
+    height: 225px;
     border: 3px solid lightgray;
 }
 
 #user-name{
     text-align: center;
     color: white;
+}
+
+#restaurants{
+    width: 37.5%;
+    display: inline-block;
+    text-align: center;
+    vertical-align: top;
+    margin-top: 30px;
 }
 
 #grid-icon, #list-icon{
@@ -88,23 +112,6 @@ hr{
     padding-bottom: 7px;
     box-sizing: border-box;
 }
-.pic-overlay{
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 100%;
-    width: 100%;
-    opacity: 0;
-    transition: 5s ease;
-    background-color: black;
-}
-
-.food-pic:hover .overlay{
-    opacity: 0.5;
-}
-
 .food-pic-list{
     width: 315px;
     height: 190px;
