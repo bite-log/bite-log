@@ -5,7 +5,7 @@ var listIcon = document.getElementById('list-icon');
 var gridIcon = document.getElementById('grid-icon');
 
 var bitesCount = 0;
-// var uniqueRestaurauntCount = 0;
+var restaurantCounter = 0;
 
 //========Entry constructor function==============================
 var BiteLogEntry = function(dish, restaurant, category, src, rating, isFav, comment) {
@@ -19,15 +19,28 @@ var BiteLogEntry = function(dish, restaurant, category, src, rating, isFav, comm
   this.comment = comment;
 
   biteLogEntryArray.unshift(this);
-  restaurantArray.push(this.restaurant);
+  allRestaurantArray.push(this.restaurant);
   bitesCount++;
-  console.log(bitesCount);
+  
   this.renderBitesCount();
+  this.renderRestaurantCount();
 };
 
 BiteLogEntry.prototype.renderBitesCount = function (){
   var biteCountEl = document.getElementById('bite-count');
   biteCountEl.textContent = bitesCount;
+};
+
+BiteLogEntry.prototype.renderRestaurantCount = function (){
+  for (var i = 0; i < allRestaurantArray.length; i++) {
+    if(uniqueRestaurantArray.indexOf(allRestaurantArray[i]) === -1) {
+      uniqueRestaurantArray.push(allRestaurantArray[i]);
+      restaurantCounter++;
+      console.log(restaurantCounter);
+    }
+  }
+  var restaurantCountEl = document.getElementById('restaurant-count');
+  restaurantCountEl.textContent = restaurantCounter;
 };
 
 BiteLogEntry.prototype.renderSingleEntry = function (){
@@ -93,13 +106,12 @@ BiteLogEntry.prototype.renderSingleList = function(){
 
 //============Test Entries==================
 
-new BiteLogEntry('burger', 'Burger Joint', 'Pub Food', './assets/burger.jpg' , '5', true, 'Delicious');
+new BiteLogEntry('burger', 'Burger Joint', 'Pub Food', './assets/burger.jpg' , 5, true, 'Delicious');
 new BiteLogEntry('pasta', 'Pasta Joint', 'Italian', './assets/pasta.png', 3, false, 'fantastic!');
 new BiteLogEntry('Pot Roast', 'Pot Roast City', 'Comfort Food', './assets/potroast.jpg', 4, false, 'Magical!');
 new BiteLogEntry('Chili', 'Chiliville', 'Comfort Food', './assets/chili.jpg', 2, false, 'good, not great');
 new BiteLogEntry('zoodles', 'Oodles O Noodles', 'Vegetarian', './assets/zoodles.jpg', 1, false, 'watery');
 new BiteLogEntry('cake', 'Just Cakes', 'Dessert', './assets/cake.jpg', 5, true, 'so moist');
-
 
 //==============Event handlers================
 var changeViewHandler = function(event){
@@ -144,4 +156,3 @@ var renderList = function(){
 renderGallery();
 viewIconSection.addEventListener('click', changeViewHandler);
 changeViewHandler;
-

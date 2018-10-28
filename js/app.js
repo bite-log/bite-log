@@ -1,14 +1,11 @@
 'use-strict';
 
 //===========Global Variables==============
-
 var categoryArray = ['Chinese', 'Japanese', 'Vietnamese', 'Korean', 'Thai', 'Greek', 'Mexican', 'Mediterranean', 'Cocktail Bars', 'Food Truck', 'Italian', 'French', 'Fast Food', 'Fast Casual', 'Fine Dining', 'Pub', 'Coffee & Tea', 'Dessert', 'Barbecue', 'Buffet', 'Seafood', 'Deli', 'American', 'Pizza', 'Vegan', 'Tapas/Small Plates', 'Breakfast & Brunch'];
-var restaurantArray = [];
+var allRestaurantArray = [];
+var uniqueRestaurantArray = [];
 var biteLogEntryArray = [];
 var userProfileArray = [];
-
-
-
 
 var loggedIn = false;
 var currentUser;
@@ -29,7 +26,6 @@ var UserProfile = function (username, spice, src) {
 
   userProfileArray.push(this);
 };
-
 
 //=============Event Handlers===============
 var createNewUserHandler = function(event){
@@ -101,7 +97,6 @@ var logout = function(event){
   window.location.href = 'index.html';
 };
 
-
 //===========Function Calls================
 
 //Local storage
@@ -124,4 +119,4 @@ if (newUserForm){
   if (loggedIn){
     userIsLoggedIn();
   }
-}
+};
