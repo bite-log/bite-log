@@ -21,7 +21,8 @@ var BiteLogEntry = function(dish, restaurant, category, src, rating, isFav, comm
   biteLogEntryArray.unshift(this);
   allRestaurantArray.push(this.restaurant);
   bitesCount++;
-  
+  console.log(bitesCount);
+
   this.renderBitesCount();
   this.renderRestaurantCount();
 };
@@ -36,21 +37,52 @@ BiteLogEntry.prototype.renderRestaurantCount = function (){
     if(uniqueRestaurantArray.indexOf(allRestaurantArray[i]) === -1) {
       uniqueRestaurantArray.push(allRestaurantArray[i]);
       restaurantCounter++;
-      console.log(restaurantCounter);
     }
   }
   var restaurantCountEl = document.getElementById('restaurant-count');
   restaurantCountEl.textContent = restaurantCounter;
 };
 
-BiteLogEntry.prototype.renderSingleEntry = function (){
+BiteLogEntry.prototype.renderSingleGalleryItem = function (){
+  //Define HTML elements
+  var galleryView = document.getElementById('gallery-view');
+  var gridItemEl = document.createElement('section');
   var imgEl = document.createElement('img');
-  imgEl.setAttribute('class', 'food-pic');
+  var overlay = document.createElement('div');
+  var h2El = document.createElement('h2');
+  var h5El = document.createElement('h5');
+
+//Set attributes
+  gridItemEl.setAttribute('class', 'grid-container');
+  imgEl.setAttribute('class', 'food-pic-grid');
+  overlay.setAttribute('class', 'overlay');
+
+  //Define content
   imgEl.src = this.src;
-  galleryView.appendChild(imgEl);
+  h2El.textContent = this.dishName;
+  h5El.textContent = this.restaurant;
+
+  //Appending
+  galleryView.appendChild(gridItemEl);
+  gridItemEl.appendChild(overlay);
+  gridItemEl.appendChild(imgEl);
+  overlay.appendChild(h2El);
+  overlay.appendChild(h5El);
+
+  //Number of stars
+  for(var i = 0; i < this.rating; i++){
+    var starEl = document.createElement('i');
+    starEl.setAttribute('class', 'fas fa-star');
+    overlay.appendChild(starEl);
+  }
+  for (var x = 0; x < (5 - this.rating); x++){
+    var starEl = document.createElement('i');
+    starEl.setAttribute('class', 'far fa-star');
+    overlay.appendChild(starEl);
+  }  
 };
 
-BiteLogEntry.prototype.renderSingleList = function(){
+BiteLogEntry.prototype.renderSingleListItem = function(){
   //Defining HTML elements
   var figureEl = document.createElement('figure');
   var figCapEl = document.createElement('figcaption');
@@ -143,13 +175,13 @@ var refreshSection = function(){
 var renderGallery = function () {
   console.log('render gallery');
   for (var i in biteLogEntryArray) {
-    biteLogEntryArray[i].renderSingleEntry();
+    biteLogEntryArray[i].renderSingleGalleryItem();
   }
 };
 
 var renderList = function(){
   for (var i in biteLogEntryArray) {
-    biteLogEntryArray[i].renderSingleList();
+    biteLogEntryArray[i].renderSingleListItem();
   }
 };
 
