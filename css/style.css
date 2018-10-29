@@ -53,6 +53,9 @@ h5{
 p{
   margin-top: 20px;
 }
+figcaption{
+  text-align: left;
+}
 
 /*Link and hover styling*/
 a{
@@ -144,7 +147,7 @@ fieldset{
   border-radius: 10px;
 }
 #url-food-pic input {
-  width: 68%;
+  width: 76%;
 }
 #fav-rating {
   display: inline-block;
@@ -193,17 +196,22 @@ fieldset{
   object-fit: cover;
   border: 3px solid lightgray;
 }
+#about-the-team{
+  text-align: center;
+}
 
 #about-the-team figure {
   display: inline-block;
   text-align: center;
-  width: 33%;
+  width: 28%;
+  margin: 20px;
 }
 
 #about-the-team h2 {
   height: 20px;
   display: block;
   margin-bottom: 30px;
+  text-align: left;
 }
 
 #about-the-team img {
