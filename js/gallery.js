@@ -52,7 +52,7 @@ BiteLogEntry.prototype.renderSingleGalleryItem = function (){
   var h2El = document.createElement('h2');
   var h5El = document.createElement('h5');
 
-//Set attributes
+  //Set attributes
   gridItemEl.setAttribute('class', 'grid-container');
   imgEl.setAttribute('class', 'food-pic-grid');
   overlay.setAttribute('class', 'overlay');
@@ -90,25 +90,27 @@ BiteLogEntry.prototype.renderSingleListItem = function(){
   var favEl = document.createElement('i');
   var h5El = document.createElement('h5');
   var h6El = document.createElement('h6');
-  var spanEl = document.createElement('span');
+  var pEl = document.createElement('p');
   var commentEl = document.createElement('p');
 
   //Setting attributes
   figureEl.setAttribute('class', 'list-container');
   figCapEl.setAttribute('class', 'list-caption');
   imgEl.setAttribute('class', 'food-pic-list');
+  favEl.setAttribute('style', 'float: right');
 
   //Defining
   imgEl.src = this.src;
   h5El.textContent = this.dishName;
   h6El.textContent = this.restaurant;
-  spanEl.textContent = this.category;
+  pEl.textContent = this.category;
   commentEl.textContent = this.comment;
 
   //Appending
   listView.appendChild(figureEl);
   figureEl.appendChild(imgEl);
   figureEl.appendChild(figCapEl);
+  figCapEl.appendChild(favEl);
   figCapEl.appendChild(h5El);
 
   //if Favorited
@@ -117,6 +119,9 @@ BiteLogEntry.prototype.renderSingleListItem = function(){
   } else{
     favEl.setAttribute('class', 'far fa-heart');
   }
+
+  figCapEl.appendChild(h6El);
+  figCapEl.appendChild(pEl);
 
   //Number of stars
   for(var i = 0; i < this.rating; i++){
@@ -129,10 +134,6 @@ BiteLogEntry.prototype.renderSingleListItem = function(){
     starEl.setAttribute('class', 'far fa-star');
     figCapEl.appendChild(starEl);
   }
-
-  figCapEl.appendChild(h6El);
-  figCapEl.appendChild(spanEl);
-  figCapEl.appendChild(favEl);
   figCapEl.appendChild(commentEl);
 };
 

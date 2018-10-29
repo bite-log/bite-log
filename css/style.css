@@ -107,6 +107,11 @@ button{
   opacity: 0.6;
   transition: 0.3s;
 }
+#food-log-input select{
+  height: 40px;
+  font-family: 'Karla', Arial, Helvetica, sans-serif;
+  border-radius: 5px;
+}
 button:hover{
   opacity: 1;
 }
@@ -149,8 +154,16 @@ fieldset{
 #url-food-pic input {
   width: 76%;
 }
-#fav-rating {
+#food-category{
+  clear: both;
+  float: left;
+}
+.fav-rating{
+  width: 30%;
   display: inline-block;
+  float: left !important;
+  clear: both;
+  height: 40px;
 }
 #rating {
   width: 50%;
@@ -223,6 +236,7 @@ fieldset{
 
 .floatright{
   float: right;
+  display: inline-block;
 }
 
 /*Footer styling*/
