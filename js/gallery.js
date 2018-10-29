@@ -145,6 +145,7 @@ new BiteLogEntry('Pot Roast', 'Pot Roast City', 'Comfort Food', './assets/potroa
 new BiteLogEntry('Chili', 'Chiliville', 'Comfort Food', './assets/chili.jpg', 2, false, 'good, not great');
 new BiteLogEntry('zoodles', 'Oodles O Noodles', 'Vegetarian', './assets/zoodles.jpg', 1, false, 'watery');
 new BiteLogEntry('cake', 'Just Cakes', 'Dessert', './assets/cake.jpg', 5, true, 'so moist');
+new BiteLogEntry('Puppaccino', 'Sbux', 'Coffee', './assets/puppuccino2.jpg', 5, true, 'Dog park fuel');
 
 //==============Event handlers================
 var changeViewHandler = function(event){
