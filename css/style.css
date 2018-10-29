@@ -53,6 +53,9 @@ h5{
 p{
   margin-top: 20px;
 }
+figcaption{
+  text-align: left;
+}
 
 /*Link and hover styling*/
 a{
@@ -104,6 +107,11 @@ button{
   opacity: 0.6;
   transition: 0.3s;
 }
+#food-log-input select{
+  height: 40px;
+  font-family: 'Karla', Arial, Helvetica, sans-serif;
+  border-radius: 5px;
+}
 button:hover{
   opacity: 1;
 }
@@ -144,10 +152,18 @@ fieldset{
   border-radius: 10px;
 }
 #url-food-pic input {
-  width: 68%;
+  width: 76%;
 }
-#fav-rating {
+#food-category{
+  clear: both;
+  float: left;
+}
+.fav-rating{
+  width: 30%;
   display: inline-block;
+  float: left !important;
+  clear: both;
+  height: 40px;
 }
 #rating {
   width: 50%;
@@ -193,17 +209,22 @@ fieldset{
   object-fit: cover;
   border: 3px solid lightgray;
 }
+#about-the-team{
+  text-align: center;
+}
 
 #about-the-team figure {
   display: inline-block;
   text-align: center;
-  width: 33%;
+  width: 28%;
+  margin: 20px;
 }
 
 #about-the-team h2 {
   height: 20px;
   display: block;
   margin-bottom: 30px;
+  text-align: left;
 }
 
 #about-the-team img {
@@ -215,6 +236,7 @@ fieldset{
 
 .floatright{
   float: right;
+  display: inline-block;
 }
 
 /*Footer styling*/

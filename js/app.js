@@ -14,6 +14,7 @@ var galleryView = document.getElementById('gallery-view');
 var listView = document.getElementById('list-view');
 var newUserForm = document.getElementById('newuser-form');
 var loginForm = document.getElementById('login-form');
+var foodCategory = document.getElementById('food-category');
 var navigation = document.getElementById('nav');
 var logoutButton = document.getElementById('logout-button');
 
@@ -93,6 +94,19 @@ var logout = function(event){
   console.log('signout clicked');
   window.location.href = 'index.html';
 };
+  
+//==========Create category===============
+var categoryCreator = function(){
+  categoryArray.sort();
+  var dropDownList = document.getElementById('food-category');
+  for (var i in categoryArray){
+    var optionEl = document.createElement('option');
+    optionEl.setAttribute('id', categoryArray[i]);
+    optionEl.textContent = categoryArray[i];
+    dropDownList.appendChild(optionEl);
+  }
+};
+
 //===========Local Storage================
 var grabUser = function(){
   if (localStorage.getItem('users')){
@@ -134,6 +148,8 @@ var initialize = function(){
   }
   if (loginForm){
     loginForm.addEventListener('submit', loginHandler);
+  } else if (foodCategory){
+    categoryCreator();
   }
 };
 
