@@ -136,16 +136,6 @@ var changeViewHandler = function(event){
   }
 };
 
-// var BiteLogEntry = function(dish, restaurant, category, src, rating, isFav, comment) {
-//   this.dishName = dish;
-//   this.restaurant = restaurant;
-//   this.category = category;
-//   this.src = src;
-//   this.rating = rating;
-
-//   this.isFavorite = isFav;
-//   this.comment = comment;
-
 var bodyEl = document.getElementById('body');
 var newFoodLogForm = document.getElementById('add-log-form');
 
@@ -160,14 +150,13 @@ var foodLogHandler = function(event) {
   var comment = event.target['comments'].value;
   console.log(dish + restaurant + category + src + rating + isFavorite + comment);
 
-  var newFoodLog = new BiteLogEntry(dish, restaurant, category, src, rating, isFav, comment);
+  var newFoodLog = new BiteLogEntry(dish, restaurant, category, src, rating, isFavorite, comment);
   localStorage.setItem('food-logs',JSON.stringify(biteLogEntryArray));
   console.log(newFoodLog);
 };
 
-bodyEl.addEventListener('click', function(event){
-  console.log('working?');
-});
+bodyEl.addEventListener('click');
+console.log('click working');
 newFoodLogForm.addEventListener('sumbit', foodLogHandler);
 console.log('submit working?');
 
@@ -176,7 +165,7 @@ console.log('submit working?');
 var grabFoodLog = function() {
   if(localStorage.getItem('food-logs')) {
     console.log('hey there, find me in local storage');
-    biteLogEntryArray = JSON.parse(localStorage.getItem('food-logs'));
+    biteLogEntryArray = JSON.parse(localStorage.setItem('food-logs'));
   }
 }
 
