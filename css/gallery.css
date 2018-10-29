@@ -120,3 +120,24 @@ hr{
     padding-bottom: 7px;
     box-sizing: border-box;
 }
+/*Footer styling*/
+footer{
+    padding: 20px;
+    width: 100%;
+    box-sizing: border-box;
+    color: white;
+    background:#3F4D51;
+    min-width: 960px;
+}
+footer section {
+    width: 960px;
+    margin: auto;
+}
+footer div {
+    display: inline-block;
+    width: 33%;
+}
+#footer-logo img {
+    width: 30px;
+    height: 30px;
+}

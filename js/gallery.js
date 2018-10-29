@@ -7,6 +7,10 @@ var gridIcon = document.getElementById('grid-icon');
 var bitesCount = 0;
 var restaurantCounter = 0;
 
+var biteLogEntryArray = [];
+var allRestaurantArray = [];
+var uniqueRestaurantArray = [];
+
 //========Entry constructor function==============================
 var BiteLogEntry = function(dish, restaurant, category, src, rating, isFav, comment) {
   this.dishName = dish;
@@ -25,6 +29,8 @@ var BiteLogEntry = function(dish, restaurant, category, src, rating, isFav, comm
   this.renderBitesCount();
   this.renderRestaurantCount();
 };
+
+
 
 BiteLogEntry.prototype.renderBitesCount = function (){
   var biteCountEl = document.getElementById('bite-count');
@@ -129,6 +135,50 @@ var changeViewHandler = function(event){
     console.log('list clicked');
   }
 };
+
+// var BiteLogEntry = function(dish, restaurant, category, src, rating, isFav, comment) {
+//   this.dishName = dish;
+//   this.restaurant = restaurant;
+//   this.category = category;
+//   this.src = src;
+//   this.rating = rating;
+
+//   this.isFavorite = isFav;
+//   this.comment = comment;
+
+var bodyEl = document.getElementById('body');
+var newFoodLogForm = document.getElementById('add-log-form');
+
+var foodLogHandler = function(event) {
+  event.preventDefault();
+  var dish = event.target['menu-item'].value;
+  var restaurant = event.target['restaurant-name'].value;
+  var category = event.target['food-category'].value;
+  var src = event.target['food-pic'].value;
+  var rating = event.target['rating'].value;
+  var isFavorite = event.target['checkbox'].value;
+  var comment = event.target['comments'].value;
+  console.log(dish + restaurant + category + src + rating + isFavorite + comment);
+
+  var newFoodLog = new BiteLogEntry(dish, restaurant, category, src, rating, isFav, comment);
+  localStorage.setItem('food-logs',JSON.stringify(biteLogEntryArray));
+  console.log(newFoodLog);
+};
+
+bodyEl.addEventListener('click', function(event){
+  console.log('working?');
+});
+newFoodLogForm.addEventListener('sumbit', foodLogHandler);
+console.log('submit working?');
+
+
+//=================Local Storage================
+var grabFoodLog = function() {
+  if(localStorage.getItem('food-logs')) {
+    console.log('hey there, find me in local storage');
+    biteLogEntryArray = JSON.parse(localStorage.getItem('food-logs'));
+  }
+}
 
 //=================Function Calls===============
 var refreshSection = function(){

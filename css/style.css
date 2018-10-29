@@ -225,17 +225,14 @@ footer{
   background:#3F4D51;
   min-width: 960px;
 }
-
 footer section {
   width: 960px;
   margin: auto;
 }
-
 footer div {
   display: inline-block;
   width: 33%;
 }
-
 #footer-logo img {
   width: 30px;
   height: 30px;
