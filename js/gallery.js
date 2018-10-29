@@ -79,7 +79,7 @@ BiteLogEntry.prototype.renderSingleGalleryItem = function (){
     var starEl = document.createElement('i');
     starEl.setAttribute('class', 'far fa-star');
     overlay.appendChild(starEl);
-  }  
+  }
 };
 
 BiteLogEntry.prototype.renderSingleListItem = function(){
@@ -163,6 +163,39 @@ var changeViewHandler = function(event){
   }
 };
 
+var bodyEl = document.getElementById('body');
+var newFoodLogForm = document.getElementById('add-log-form');
+
+var foodLogHandler = function(event) {
+  event.preventDefault();
+
+  var dishName = event.target['menu-item'].value;
+  var restaurant = event.target['restaurant-name'].value;
+  var category = event.target['food-category'].value;
+  var src = event.target['food-pic'].value;
+  var rating = event.target['rating'].value;
+  var isFavorite = event.target['checkbox'].value;
+  var comment = event.target['comments'].value;
+  console.log(dishName + restaurant + category + src + rating + isFavorite + comment);
+
+  var newFoodLog = new BiteLogEntry(dishName, restaurant, category, src, rating, isFavorite, comment);
+  localStorage.setItem('food-logs',JSON.stringify(newFoodLog));
+  console.log(newFoodLog);
+};
+
+bodyEl.addEventListener('click');
+console.log('click working');
+newFoodLogForm.addEventListener('sumbit', foodLogHandler);
+console.log('submit working?');
+
+
+// //=================Local Storage================
+// var grabFoodLog = function() {
+//   if(localStorage.getItem('food-logs')) {
+//     console.log('hey there, find me in local storage');
+//     biteLogEntryArray = JSON.parse(localStorage.setItem('food-logs'));
+//   }
+// }
 //=================Function Calls===============
 var refreshSection = function(){
   while(galleryView.firstChild){
@@ -197,6 +230,8 @@ var renderGalleryHeader = function(){
 
 renderGallery();
 renderGalleryHeader();
+foodLogHandler();
 
 viewIconSection.addEventListener('click', changeViewHandler);
 changeViewHandler;
+
