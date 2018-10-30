@@ -21,7 +21,6 @@ var BiteLogEntry = function(dish, restaurant, category, src, rating, isFav, comm
   biteLogEntryArray.unshift(this);
   allRestaurantArray.push(this.restaurant);
   bitesCount++;
-  console.log(bitesCount);
 
   this.renderBitesCount();
   this.renderRestaurantCount();
@@ -145,6 +144,7 @@ new BiteLogEntry('Pot Roast', 'Pot Roast City', 'Comfort Food', './assets/potroa
 new BiteLogEntry('Chili', 'Chiliville', 'Comfort Food', './assets/chili.jpg', 2, false, 'good, not great');
 new BiteLogEntry('zoodles', 'Oodles O Noodles', 'Vegetarian', './assets/zoodles.jpg', 1, false, 'watery');
 new BiteLogEntry('cake', 'Just Cakes', 'Dessert', './assets/cake.jpg', 5, true, 'so moist');
+new BiteLogEntry('Puppaccino', 'Sbux', 'Coffee', './assets/puppuccino2.jpg', 5, true, 'Dog park fuel');
 
 //==============Event handlers================
 var changeViewHandler = function(event){
@@ -212,21 +212,17 @@ var renderGallery = function () {
     biteLogEntryArray[i].renderSingleGalleryItem();
   }
 };
-
 var renderList = function(){
   for (var i in biteLogEntryArray) {
     biteLogEntryArray[i].renderSingleListItem();
   }
 };
-
-
 var renderGalleryHeader = function(){
   var userPhotoHeader = document.getElementById('user-profilepic');
   var userNameHeader = document.getElementById('user-name');
   userNameHeader.textContent = currentUser.userName;
   userPhotoHeader.src = currentUser.userImage;
 };
-
 
 renderGallery();
 renderGalleryHeader();
