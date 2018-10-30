@@ -1,6 +1,5 @@
 'use strict';
 
-var bodyEl = document.getElementById('body');
 var newFoodLogForm = document.getElementById('add-log-form');
 
 var foodLogHandler = function(event) {
@@ -9,7 +8,7 @@ var foodLogHandler = function(event) {
   var dishName = event.target['menu-item'].value;
   var restaurant = event.target['restaurant-name'].value;
   var category = event.target['food-category'].value;
-  var src = event.target['food-pic'].value;
+  var src = event.target['url'].value;
   var rating = event.target['rating'].value;
   var isFavorite = event.target['checkbox'].value;
   var comment = event.target['comments'].value;
@@ -20,12 +19,10 @@ var foodLogHandler = function(event) {
   console.log(newFoodLog);
 };
 
-bodyEl.addEventListener('click');
-console.log('click working');
-newFoodLogForm.addEventListener('sumbit', foodLogHandler);
+
+newFoodLogForm.addEventListener('submit', foodLogHandler);
 console.log('submit working?');
 
-foodLogHandler();
 
 // //=================Local Storage================
 // var grabFoodLog = function() {
