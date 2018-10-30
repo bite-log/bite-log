@@ -21,7 +21,6 @@ var BiteLogEntry = function(dish, restaurant, category, src, rating, isFav, comm
   biteLogEntryArray.unshift(this);
   allRestaurantArray.push(this.restaurant);
   bitesCount++;
-  console.log(bitesCount);
 
   this.renderBitesCount();
   this.renderRestaurantCount();
@@ -213,21 +212,17 @@ var renderGallery = function () {
     biteLogEntryArray[i].renderSingleGalleryItem();
   }
 };
-
 var renderList = function(){
   for (var i in biteLogEntryArray) {
     biteLogEntryArray[i].renderSingleListItem();
   }
 };
-
-
 var renderGalleryHeader = function(){
   var userPhotoHeader = document.getElementById('user-profilepic');
   var userNameHeader = document.getElementById('user-name');
   userNameHeader.textContent = currentUser.userName;
   userPhotoHeader.src = currentUser.userImage;
 };
-
 
 renderGallery();
 renderGalleryHeader();
