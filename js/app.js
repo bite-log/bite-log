@@ -1,11 +1,12 @@
 'use-strict';
 
 //===========Global Variables==============
-var categoryArray = ['Chinese', 'Japanese', 'Vietnamese', 'Korean', 'Thai', 'Greek', 'Mexican', 'Mediterranean', 'Cocktail Bars', 'Food Truck', 'Italian', 'French', 'Fast Food', 'Fast Casual', 'Fine Dining', 'Pub', 'Coffee & Tea', 'Dessert', 'Barbecue', 'Buffet', 'Seafood', 'Deli', 'American', 'Pizza', 'Vegan', 'Tapas/Small Plates', 'Breakfast & Brunch'];
+var categoryArray = ['Chinese', 'Japanese', 'Vietnamese', 'Korean', 'Thai', 'Greek', 'Mexican', 'Mediterranean', 'Vegetarian', 'Comfort Food', 'Cocktail Bars', 'Food Truck', 'Italian', 'French', 'Fast Food', 'Fast Casual', 'Fine Dining', 'Pub', 'Coffee & Tea', 'Dessert', 'Barbecue', 'Buffet', 'Seafood', 'Deli', 'American', 'Pizza', 'Vegan', 'Tapas/Small Plates', 'Breakfast & Brunch'];
 var allRestaurantArray = [];
 var uniqueRestaurantArray = [];
 var biteLogEntryArray = [];
 var userProfileArray = [];
+var punArray = ['we\’re kind of a big dill', 'you look radishing', 'we\’re made pho each other', 'every day I’m trufflin\’', 'so we meat again', 'you guac my world', 'good chives only', 'penne for your thoughts?', 'lettuce turnip the beet', 'don\’t settle for being mediokra', 'keep calm and curry on', 'do you wanna taco \‘bout it?', 'walk this whey', 'you wanna pizza me?', 'jello from the other side', 'i donut know what i\’d do without you', 'olive you from my head tomatoes', 'two birds, one scone', 'it takes two to mango', 'absolutely spec-taco-lar!', 'you\'re flantastic!', 'you make miso happy', 'the pearsuit of happiness', 'don\'t go bacon my heart', 'another one bites the crust', 'it was mint to be!', 'party like it\'s sherbertday', 'love you a latte', 'hugs & quiches', 'hakuna frittata', 'pasta la vista, baby!'];
 
 var currentUser;
 var redirectLogin;
@@ -69,6 +70,7 @@ var loginHandler = function(event){
   }
 };
 
+//=========Login stuff==============
 var userDoesNotExist = function(){
   var errorMsg = document.getElementById('error-message');
   errorMsg.setAttribute('class', 'login-required')
@@ -105,6 +107,12 @@ var categoryCreator = function(){
     optionEl.textContent = categoryArray[i];
     dropDownList.appendChild(optionEl);
   }
+};
+
+//==========Pun generator=================
+var randomPun = function(){
+  var punElement = document.getElementById('pun');
+  punElement.textContent = punArray[Math.floor(Math.random() * punArray.length)];
 };
 
 //===========Local Storage================
@@ -145,6 +153,10 @@ var initialize = function(){
       h5El.textContent = 'Welcome back ' + currentUser.userName + '!';
       loginField.appendChild(h5El);
     }
+  }
+
+  if (!galleryView || !listView){
+    randomPun();
   }
   if (loginForm){
     loginForm.addEventListener('submit', loginHandler);

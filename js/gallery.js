@@ -10,18 +10,17 @@ var restaurantCounter = 0;
 
 //========Entry constructor function==============================
 var BiteLogEntry = function(dish, restaurant, category, src, rating, isFav, comment) {
-this.dishName = dish;
-this.restaurant = restaurant;
-this.category = category;
-this.src = src;
-this.rating = rating;
+  this.dishName = dish;
+  this.restaurant = restaurant;
+  this.category = category;
+  this.src = src;
+  this.rating = rating;
 
-this.isFavorite = isFav;
-this.comment = comment;
+  this.isFavorite = isFav;
+  this.comment = comment;
 
-biteLogEntryArray.unshift(this);
-allRestaurantArray.push(this.restaurant);
-// bitesCount++;
+  biteLogEntryArray.unshift(this);
+  allRestaurantArray.push(this.restaurant);
 };
 
 var renderSingleGalleryItem = function (biteArray){
@@ -123,14 +122,11 @@ figCapEl.appendChild(commentEl);
 };
 
 //============Test Entries==================
-
-new BiteLogEntry('burger', 'Burger Joint', 'Pub', './assets/burger.jpg' , 5, true, 'Delicious');
 new BiteLogEntry('pasta', 'Pasta Joint', 'Italian', './assets/pasta.png', 3, false, 'fantastic!');
 new BiteLogEntry('Pot Roast', 'Pot Roast City', 'Comfort Food', './assets/potroast.jpg', 4, false, 'Magical!');
 new BiteLogEntry('Chili', 'Chiliville', 'Comfort Food', './assets/chili.jpg', 2, false, 'good, not great');
 new BiteLogEntry('zoodles', 'Oodles O Noodles', 'Vegetarian', './assets/zoodles.jpg', 1, false, 'watery');
 new BiteLogEntry('cake', 'Just Cakes', 'Dessert', './assets/cake.jpg', 5, true, 'so moist');
-new BiteLogEntry('Puppaccino', 'Sbux', 'Coffee & Tea', './assets/puppuccino2.jpg', 5, true, 'Dog park fuel');
 
 //==============Event handlers================
 var changeViewHandler = function(event){
@@ -147,6 +143,23 @@ refreshSection();
 renderList();
 console.log('list clicked');
 }
+=======
+
+//==============Event handlers================
+var changeViewHandler = function(event){
+  if (event.target.id === 'grid-icon'){
+    listIcon.removeAttribute('class');
+    gridIcon.setAttribute('class', 'icon-selected');
+    refreshSection();
+    renderGallery(biteLogEntryArray);
+    console.log('grid clicked');
+  } else if (event.target.id === 'list-icon'){
+    gridIcon.removeAttribute('class');
+    listIcon.setAttribute('class', 'icon-selected');
+    refreshSection();
+    renderList(biteLogEntryArray);
+    console.log('list clicked');
+  }
 };
 
 var foodLogHandler = function(event) {
@@ -186,16 +199,18 @@ while(listView.firstChild){
 listView.removeChild(listView.firstChild);
 }
 };
-var renderGallery = function () {
-console.log('render gallery');
-for (var i in biteLogEntryArray) {
-renderSingleGalleryItem(biteLogEntryArray[i]);
-}
+
+
+var renderGallery = function (array) {
+  console.log('render gallery');
+  for (var i in array) {
+    renderSingleGalleryItem(array[i]);
+  }
 };
-var renderList = function(){
-for (var i in biteLogEntryArray) {
-renderSingleListItem(biteLogEntryArray[i]);
-}
+var renderList = function(array){
+  for (var i in array) {
+    renderSingleListItem(array[i]);
+  }
 };
 var restaurantCounterFunction = function(){
 for (var i = 0; i < allRestaurantArray.length; i++) {
@@ -229,15 +244,11 @@ restaurantCountEl.textContent = restaurantCounter;
 
 localStorageCheck();
 if (galleryView || listView){
-renderGallery();
-renderGalleryHeader();
-viewIconSection.addEventListener('click', changeViewHandler);
-changeViewHandler;
+  renderGallery(biteLogEntryArray);
+  renderGalleryHeader();
+  viewIconSection.addEventListener('click', changeViewHandler);
+  categorySelections.addEventListener('onchange', categorySortHandler);
+  changeViewHandler;
 } else{
-newFoodLogForm.addEventListener('submit', foodLogHandler);
+  newFoodLogForm.addEventListener('submit', foodLogHandler);
 }
-
-
-
-
-
