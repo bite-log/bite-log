@@ -1,5 +1,7 @@
 'use strict';
 
+
+
 // //==========Sort by Favorite==========
 
 // var favorites = biteLogEntryArray.filter(function (fav) {
@@ -17,7 +19,6 @@
 // sortFromLowest.reverse();
 
 //=======Sort by Category=======
-var categorySelections = document.getElementById('food-category');
 var userCategory;
 
 var totalBites = [...biteLogEntryArray];
@@ -68,4 +69,4 @@ var categorySortHandler = function(event){
 
 
 var categorySelections = document.getElementById('food-category');
-
+categorySelections.addEventListener('onchange', categorySortHandler);
