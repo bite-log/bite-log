@@ -91,6 +91,9 @@ figure{
 section ul li{
     display: inline;
 }
+#block{
+    display: inline-block!important;
+}
 select, option{
     margin-right: 5px;
     font-family: 'Karla', Arial, Helvetica, sans-serif;

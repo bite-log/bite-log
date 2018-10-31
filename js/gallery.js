@@ -3,6 +3,7 @@
 var viewIconSection = document.getElementById('view-icons');
 var listIcon = document.getElementById('list-icon');
 var gridIcon = document.getElementById('grid-icon');
+var newFoodLogForm = document.getElementById('add-log-form');
 
 var bitesCount = 0;
 var restaurantCounter = 0;
@@ -23,7 +24,7 @@ var BiteLogEntry = function(dish, restaurant, category, src, rating, isFav, comm
   // bitesCount++;
 };
 
-BiteLogEntry.prototype.renderSingleGalleryItem = function (){
+var renderSingleGalleryItem = function (biteArray){
   //Define HTML elements
   var galleryView = document.getElementById('gallery-view');
   var gridItemEl = document.createElement('section');
@@ -38,9 +39,9 @@ BiteLogEntry.prototype.renderSingleGalleryItem = function (){
   overlay.setAttribute('class', 'overlay');
 
   //Define content
-  imgEl.src = this.src;
-  h2El.textContent = this.dishName;
-  h5El.textContent = this.restaurant;
+  imgEl.src = biteArray.src;
+  h2El.textContent = biteArray.dishName;
+  h5El.textContent = biteArray.restaurant;
 
   //Appending
   galleryView.appendChild(gridItemEl);
@@ -50,19 +51,19 @@ BiteLogEntry.prototype.renderSingleGalleryItem = function (){
   overlay.appendChild(h5El);
 
   //Number of stars
-  for(var i = 0; i < this.rating; i++){
+  for(var i = 0; i < biteArray.rating; i++){
     var starEl = document.createElement('i');
     starEl.setAttribute('class', 'fas fa-star');
     overlay.appendChild(starEl);
   }
-  for (var x = 0; x < (5 - this.rating); x++){
+  for (var x = 0; x < (5 - biteArray.rating); x++){
     var starEl = document.createElement('i');
     starEl.setAttribute('class', 'far fa-star');
     overlay.appendChild(starEl);
   }
 };
 
-BiteLogEntry.prototype.renderSingleListItem = function(){
+var renderSingleListItem = function(biteArray){
   //Defining HTML elements
   var figureEl = document.createElement('figure');
   var figCapEl = document.createElement('figcaption');
@@ -80,11 +81,11 @@ BiteLogEntry.prototype.renderSingleListItem = function(){
   favEl.setAttribute('style', 'float: right');
 
   //Defining
-  imgEl.src = this.src;
-  h5El.textContent = this.dishName;
-  h6El.textContent = this.restaurant;
-  pEl.textContent = this.category;
-  commentEl.textContent = this.comment;
+  imgEl.src = biteArray.src;
+  h5El.textContent = biteArray.dishName;
+  h6El.textContent = biteArray.restaurant;
+  pEl.textContent = biteArray.category;
+  commentEl.textContent = biteArray.comment;
 
   //Appending
   listView.appendChild(figureEl);
@@ -94,7 +95,7 @@ BiteLogEntry.prototype.renderSingleListItem = function(){
   figCapEl.appendChild(h5El);
 
   //if Favorited
-  if (this.isFavorite === true){
+  if (biteArray.isFavorite === true){
     favEl.setAttribute('class', 'fas fa-heart');
   } else{
     favEl.setAttribute('class', 'far fa-heart');
@@ -104,12 +105,12 @@ BiteLogEntry.prototype.renderSingleListItem = function(){
   figCapEl.appendChild(pEl);
 
   //Number of stars
-  for(var i = 0; i < this.rating; i++){
+  for(var i = 0; i < biteArray.rating; i++){
     var starEl = document.createElement('i');
     starEl.setAttribute('class', 'fas fa-star');
     figCapEl.appendChild(starEl);
   }
-  for (var x = 0; x < (5 - this.rating); x++){
+  for (var x = 0; x < (5 - biteArray.rating); x++){
     var starEl = document.createElement('i');
     starEl.setAttribute('class', 'far fa-star');
     figCapEl.appendChild(starEl);
@@ -144,10 +145,30 @@ var changeViewHandler = function(event){
   }
 };
 
+var foodLogHandler = function(event) {
+  event.preventDefault();
+
+  var dishName = event.target['menu-item'].value;
+  var restaurant = event.target['restaurant-name'].value;
+  var category = event.target['food-category'].value;
+  var src = event.target['url'].value;
+  var rating = event.target['rating'].value;
+  var isFavorite = event.target['checkbox'].value;
+  var comment = event.target['comments'].value;
+  console.log(dishName + restaurant + category + src + rating + isFavorite + comment);
+
+  console.log('inside');
+  new BiteLogEntry(dishName, restaurant, category, src, rating, isFavorite, comment);
+  localStorage.setItem('bite-log', JSON.stringify(biteLogEntryArray));
+  localStorage.setItem('all-restaurants', JSON.stringify(allRestaurantArray));
+  window.location.href = 'gallery.html';
+};
+
 //================Local Storage=================
 var localStorageCheck = function(){
   if (localStorage.getItem('bite-log')){
     biteLogEntryArray = JSON.parse(localStorage.getItem('bite-log'));
+    allRestaurantArray = JSON.parse(localStorage.getItem('all-restaurants'));
   }
 };
 
@@ -164,12 +185,12 @@ var refreshSection = function(){
 var renderGallery = function () {
   console.log('render gallery');
   for (var i in biteLogEntryArray) {
-    biteLogEntryArray[i].renderSingleGalleryItem();
+    renderSingleGalleryItem(biteLogEntryArray[i]);
   }
 };
 var renderList = function(){
   for (var i in biteLogEntryArray) {
-    biteLogEntryArray[i].renderSingleListItem();
+    renderSingleListItem(biteLogEntryArray[i]);
   }
 };
 var restaurantCounterFunction = function(){
@@ -202,11 +223,15 @@ var renderGalleryHeader = function(){
   restaurantCountEl.textContent = restaurantCounter;
 };
 
+localStorageCheck();
 if (galleryView || listView){
   renderGallery();
   renderGalleryHeader();
   viewIconSection.addEventListener('click', changeViewHandler);
   changeViewHandler;
+} else{
+  
+  newFoodLogForm.addEventListener('submit', foodLogHandler);
 }
 
 
