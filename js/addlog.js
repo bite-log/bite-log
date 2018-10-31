@@ -14,9 +14,9 @@ var foodLogHandler = function(event) {
   var comment = event.target['comments'].value;
   console.log(dishName + restaurant + category + src + rating + isFavorite + comment);
 
-  var newFoodLog = new BiteLogEntry(dishName, restaurant, category, src, rating, isFavorite, comment);
-  localStorage.setItem('food-logs',JSON.stringify(newFoodLog));
-  console.log(newFoodLog);
+  console.log('inside');
+  localStorage.setItem('food-logs',JSON.stringify(dishName + restaurant + category + src + rating + isFavorite + comment));
+  console.log('run');
 };
 
 
@@ -26,8 +26,6 @@ console.log('submit working?');
 
 // //=================Local Storage================
 // var grabFoodLog = function() {
-//   if(localStorage.getItem('food-logs')) {
+//   if(localStorage.getItem('food-logs', JSON.parse())) {
 //     console.log('hey there, find me in local storage');
-//     biteLogEntryArray = JSON.parse(localStorage.setItem('food-logs'));
-//   }
-// }
+  
