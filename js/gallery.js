@@ -21,7 +21,6 @@ var BiteLogEntry = function(dish, restaurant, category, src, rating, isFav, comm
 
   biteLogEntryArray.unshift(this);
   allRestaurantArray.push(this.restaurant);
-  // bitesCount++;
 };
 
 var renderSingleGalleryItem = function (biteArray){
