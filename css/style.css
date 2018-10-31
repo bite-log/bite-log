@@ -165,8 +165,28 @@ fieldset{
   clear: both;
   height: 40px;
 }
-#rating {
-  width: 50%;
+#fav-check{
+  display: inline-block;
+  width: 18%;
+}
+#fav-check>label{
+  margin-top: 12px;
+  display: inline-block;
+}
+#checkbox{
+  float: right;
+  width: 20%;
+}
+#rating-scale{
+  width: 45%;
+}
+#rating-scale>label{
+  margin-top: 12px;
+  display: inline-block;
+}
+#rating{
+  float: right;
+  width: 65%;
 }
 #login img{
   object-fit: cover;
