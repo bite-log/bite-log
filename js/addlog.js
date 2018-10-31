@@ -15,7 +15,8 @@ var foodLogHandler = function(event) {
   console.log(dishName + restaurant + category + src + rating + isFavorite + comment);
 
   console.log('inside');
-  localStorage.setItem('food-logs',JSON.stringify(dishName + restaurant + category + src + rating + isFavorite + comment));
+  new BiteLogEntry(dishName, restaurant, category, src, rating, isFavorite, comment);
+  localStorage.setItem('bite-log', JSON.stringify(biteLogEntryArray));
   console.log('run');
 };
 
@@ -23,9 +24,3 @@ var foodLogHandler = function(event) {
 newFoodLogForm.addEventListener('submit', foodLogHandler);
 console.log('submit working?');
 
-
-// //=================Local Storage================
-// var grabFoodLog = function() {
-//   if(localStorage.getItem('food-logs', JSON.parse())) {
-//     console.log('hey there, find me in local storage');
-  
