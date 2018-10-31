@@ -9,14 +9,14 @@
 // });
 
 // //======Sort from Lowest to Highest, Highest to Lowest=========
-// var sortFromLowest = biteLogEntryArray.sort(function (a, b) {
-//   return a.rating - b.rating;
-// });
+var sortFromLowest = biteLogEntryArray.sort(function (a, b) {
+  return a.rating - b.rating;
+});
 
-// //====Filter Calls
+//====Filter Calls
 // favorites;
-// sortFromLowest;
-// sortFromLowest.reverse();
+sortFromLowest;
+sortFromLowest.reverse();
 
 //=======Sort by Category=======
 var userCategory;
@@ -44,28 +44,37 @@ var categorySortHandler = function(event){
 };
 
 // //=====Filter Handler====
+var userFilter;
 
-// //Must render for both gallery & list view (must persist through view change?) -- nested if statements?
-
-// var filterHandler = function(event) {
-//   if(event.target.id === 'favorites-filter') {
-//     favorites;
-//     refreshSection();
-//     //render ONLY favorites
-//   } else if (event.target.id === 'highlow-filter') {
-//     sortFromLowest.reverse();
-//     refreshSection();
-//     //render in order high to low
-//   } else if (event.target.id === 'lowhigh-filter') {
-//     sortFromLowest;
-//     refreshSection();
-//     //render in order low to high
-//   } else { //if 'Filter By' remains
-//     //do nothing
-//   }
-// };
-// var filterLogs = document.getElementById('filter-by');
-// filterLogs.addEventListener('change', filterHandler);
+var filterHandler = function(event) {
+  biteLogEntryArray = [];
+  userFilter = filterLogs.options[filterLogs.selectedIndex].value;
+  console.log('filter has changed to ' + userFilter);
+  if(event.target.id === 'favorites-filter') {
+    var favorites = biteLogEntryArray.filter(function (fav) {
+      return fav.isFavorite === true;
+    });
+    biteLogEntryArray.push(favorites);
+    refreshSection();
+    if (document.getElementById('grid-icon').className === 'icon-selected'){
+      renderGallery(biteLogEntryArray);
+    } else{
+      renderList(biteLogEntryArray);
+    }
+  } else if (event.target.id === 'highlow-filter') {
+    sortFromLowest.reverse();
+    refreshSection();
+    //render in order high to low
+  } else if (event.target.id === 'lowhigh-filter') {
+    sortFromLowest;
+    refreshSection();
+    //render in order low to high
+  } else { //if 'Filter By' remains
+    //do nothing
+  }
+};
+var filterLogs = document.getElementById('filter-by');
+filterLogs.addEventListener('onchange', filterHandler);
 
 
 var categorySelections = document.getElementById('food-category');
