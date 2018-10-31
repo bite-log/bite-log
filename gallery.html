@@ -47,8 +47,8 @@
             <h2>your bite.log</h2>
             
             <!--Filter-->
-            <select id="food-category" class="float">
-                <option value="default" selected="selected">Category</option>
+            <select id="food-category" class="float" onchange="categorySortHandler()">
+                <option value="default" selected="selected">Category (all)</option>
             </select>
             <select name="filter-by">
                 <option value="default" selected="selected">Filter By</option>
@@ -103,6 +103,7 @@
     </footer>
 <script src='./js/app.js'></script>
 <script src='./js/gallery.js'></script>
+<script src="./js/filters.js"></script>
 <script src="./js/login.js"></script>
 </body>
 </html>

@@ -1,4 +1,4 @@
-// 'use strict';
+'use strict';
 
 // //==========Sort by Favorite==========
 
@@ -16,19 +16,31 @@
 // sortFromLowest;
 // sortFromLowest.reverse();
 
-// //=======Sort by Category=======
+//=======Sort by Category=======
+var categorySelections = document.getElementById('food-category');
+var userCategory;
 
-// var pubCat = biteLogEntryArray.filter(function (style) {
-//   return style.category === 'Pub';
-// });
-
-// var italianCat = biteLogEntryArray.filter(function (style) {
-//   return style.category === 'Italian';
-// });
-
-// var coffeeCat = biteLogEntryArray.filter(function (style) {
-//   return style.category === 'Coffee & Tea';
-// });
+var totalBites = [...biteLogEntryArray];
+var categorySortHandler = function(event){
+  biteLogEntryArray = [];
+  userCategory = categorySelections.options[categorySelections.selectedIndex].value;
+  console.log('category has changed to ' + userCategory);
+  if (userCategory === 'default'){
+    biteLogEntryArray = [...totalBites];
+  }
+  for (var i in totalBites){
+    if (totalBites[i].category === userCategory){
+      biteLogEntryArray.push(totalBites[i]);
+      console.log(totalBites[i]);
+    }
+  }
+  refreshSection();
+  if (document.getElementById('grid-icon').className === 'icon-selected'){
+    renderGallery(biteLogEntryArray);
+  } else{
+    renderList(biteLogEntryArray);
+  }
+};
 
 // //=====Filter Handler====
 
@@ -54,13 +66,6 @@
 // var filterLogs = document.getElementById('filter-by');
 // filterLogs.addEventListener('change', filterHandler);
 
-// //=======Sort by Category Handler
 
-// var categorySortHandler = function(event) {
-//   //function call
-//   refreshSection();
-//   //render only those in the selected category
-// };
+var categorySelections = document.getElementById('food-category');
 
-// var sortByCategory = document.getElementById('food-category');
-// sortByCategory.addEventListener('change', categorySortHandler);
