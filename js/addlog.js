@@ -15,10 +15,10 @@ var foodLogHandler = function(event) {
   console.log(dishName + restaurant + category + src + rating + isFavorite + comment);
 
   var newFoodLog = new BiteLogEntry(dishName, restaurant, category, src, rating, isFavorite, comment);
-  localStorage.setItem('food-logs',JSON.stringify(newFoodLog));
+  localStorage.setItem('food-logs', JSON.stringify(newFoodLog));
   console.log(newFoodLog);
 };
-
+// testing
 
 newFoodLogForm.addEventListener('submit', foodLogHandler);
 console.log('submit working?');
