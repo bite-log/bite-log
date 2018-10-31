@@ -20,26 +20,7 @@ var BiteLogEntry = function(dish, restaurant, category, src, rating, isFav, comm
 
   biteLogEntryArray.unshift(this);
   allRestaurantArray.push(this.restaurant);
-  bitesCount++;
-
-  this.renderBitesCount();
-  this.renderRestaurantCount();
-};
-
-BiteLogEntry.prototype.renderBitesCount = function (){
-  var biteCountEl = document.getElementById('bite-count');
-  biteCountEl.textContent = bitesCount;
-};
-
-BiteLogEntry.prototype.renderRestaurantCount = function (){
-  for (var i = 0; i < allRestaurantArray.length; i++) {
-    if(uniqueRestaurantArray.indexOf(allRestaurantArray[i]) === -1) {
-      uniqueRestaurantArray.push(allRestaurantArray[i]);
-      restaurantCounter++;
-    }
-  }
-  var restaurantCountEl = document.getElementById('restaurant-count');
-  restaurantCountEl.textContent = restaurantCounter;
+  // bitesCount++;
 };
 
 BiteLogEntry.prototype.renderSingleGalleryItem = function (){
@@ -163,6 +144,13 @@ var changeViewHandler = function(event){
   }
 };
 
+//================Local Storage=================
+var localStorageCheck = function(){
+  if (localStorage.getItem('bite-log')){
+    biteLogEntryArray = JSON.parse(localStorage.getItem('bite-log'));
+  }
+};
+
 //=================Function Calls===============
 var refreshSection = function(){
   while(galleryView.firstChild){
@@ -184,16 +172,43 @@ var renderList = function(){
     biteLogEntryArray[i].renderSingleListItem();
   }
 };
+var restaurantCounterFunction = function(){
+  for (var i = 0; i < allRestaurantArray.length; i++) {
+    if(uniqueRestaurantArray.indexOf(allRestaurantArray[i]) === -1) {
+      uniqueRestaurantArray.push(allRestaurantArray[i]);
+      restaurantCounter++;
+    }
+  }
+};
+var biteCounterFunction = function(){
+  bitesCount = 0;
+  for (var i = 0; i < biteLogEntryArray.length; i++) {
+    bitesCount++;
+  }
+};
+
 var renderGalleryHeader = function(){
   var userPhotoHeader = document.getElementById('user-profilepic');
   var userNameHeader = document.getElementById('user-name');
   userNameHeader.textContent = currentUser.userName;
   userPhotoHeader.src = currentUser.userImage;
+
+  biteCounterFunction();
+  var biteCountEl = document.getElementById('bite-count');
+  biteCountEl.textContent = bitesCount;
+
+  restaurantCounterFunction();
+  var restaurantCountEl = document.getElementById('restaurant-count');
+  restaurantCountEl.textContent = restaurantCounter;
 };
 
-renderGallery();
-renderGalleryHeader();
+if (galleryView || listView){
+  renderGallery();
+  renderGalleryHeader();
+  viewIconSection.addEventListener('click', changeViewHandler);
+  changeViewHandler;
+}
 
-viewIconSection.addEventListener('click', changeViewHandler);
-changeViewHandler;
+
+
 
