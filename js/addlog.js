@@ -20,7 +20,6 @@ var foodLogHandler = function(event) {
   console.log('run');
 };
 
-
 newFoodLogForm.addEventListener('submit', foodLogHandler);
 console.log('submit working?');
 

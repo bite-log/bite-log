@@ -28,7 +28,6 @@ var UserProfile = function (username, spice, src) {
   userProfileArray.push(this);
 };
 
-
 //=============Event Handlers===============
 var createNewUserHandler = function(event){
   console.log(event);
