@@ -14,17 +14,20 @@
 </head>
 <body>
     <!--User Profile-->
-    <header class="user-profile">
-        <div id="nav">
+    <div id="nav">
+        <div class="topbar">
             <nav>
                 <ul>
                     <li><a href="index.html" id="home" alt="home"><i class="fas fa-home fa-lg"></i> Home</a></li>
                     <li><a href="gallery.html" alt="food log"><i class="fas fa-cookie-bite fa-lg"> </i> Log</a></li>
                     <li><a href="add.html" id="add" alt="add log"><i class="fas fa-plus-square fa-lg"></i> Add</a></li>
-                    <li class="floatright" id="logout-button"></li>
                 </ul>
             </nav>
+            <h3>bite.log</h3>
+            <span class="floatright" id="logout-button"></span>
         </div>
+    </div>
+    <header class="user-profile">
         <div id="user-info">
             <section id="bites">
                 <h4>bites</h4>
@@ -44,7 +47,7 @@
     <!--Gallery-->
     <main>
         <section>
-            <h2>your bite.log</h2>
+            <h2 id="user">your bite.log >></h2>
             
             <!--Filter-->
             <select id="food-category" class="float" onchange="categorySortHandler()">
@@ -77,9 +80,9 @@
                 <img src="./images/logo.png">
                 <h5>bite.log</h5>
                 <ul>
-                    <li><a href="index.html">home</a></li>
-                    <li><a href="log.html">bite log</a></li>
-                    <li><a href="add.html">add log</a></li>
+                    <li><a href="index.html">home</a></li><br>
+                    <li><a href="log.html">bite log</a></li><br>
+                    <li><a href="add.html">add log</a></li><br>
                 </ul>
                 &copy; 2018 bite.log
             </div>
