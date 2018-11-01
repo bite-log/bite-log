@@ -8,7 +8,7 @@ header {
   width: 100%;
   min-width: 960px;
   opacity: 0.8;
-  height: 350px;
+  height: 380px;
   padding: 10px;
   box-sizing: border-box;
 } 
@@ -18,7 +18,7 @@ header div {
 }
 #header-logo {
   position: relative;
-  top: 30%;
+  top: 40%;
   color: azure;
   text-align: center;
 }
@@ -26,6 +26,7 @@ header div {
 /*Header styling (H1 thru H6)*/
 h1{
   font-family: 'Poppins', Arial, Helvetica, sans-serif;
+  text-shadow: 2px 2px 8px #3F4D51;
   font-size: 36pt;
   font-weight: bold;
   text-align: center;
@@ -38,6 +39,14 @@ h2{
   color: #40A4C4;
   text-transform: lowercase;
   margin-bottom: 20px;
+}
+h3{
+  font-family: 'Poppins', Arial, Helvetica, sans-serif;
+  font-weight: bolder;
+  font-size: 16pt;
+  color:#3F4D51;
+  text-transform: lowercase;
+  display: inline;
 }
 h4{
   text-align: center;
@@ -61,21 +70,51 @@ figcaption{
 a{
   text-decoration: none;
   color: #7CD6F1;
+  transition: color 0.3s ease;
 }
 a:hover{
-  color: #F5A623;
+  color: #D55548;
 }
+
 /*Nav and main styling*/
-nav li {
+#nav{
+  background-color: white;
+  position: fixed;
+  width: 100%;
+  box-shadow: 2px 2px 8px #3f4d51;
+  top: 0px;
+  left: 0px;
+  padding: 15px;
+  margin: 0 auto;
+  box-sizing: border-box;
+  z-index: 1;
+  opacity: 0.9;
+}
+.topbar{
+  width: 960px;
+  margin: auto;
+  box-sizing: border-box;
+}
+nav{
+  float: left;
+  width: 45%;
+  margin: auto;
+}
+nav ul li {
   display: inline-block;
   padding-right: 10px;
 }
 nav a{
-  color: white;
+  color: #3F4D51;
+}
+.topbar span a{
+  color: #3F4D51;
 }
 #nav-logo {
   width: 17px;
 }
+
+
 main {
   width: 960px;
   margin: auto;
@@ -227,7 +266,7 @@ fieldset{
   width: 150px;
   height: 150px;
   object-fit: cover;
-  border: 3px solid lightgray;
+  border: 3px solid #40A4C4;
 }
 #about-the-team{
   text-align: center;
@@ -268,12 +307,17 @@ footer{
   background:#3F4D51;
   min-width: 960px;
 }
-
+footer h3{
+  color: white;
+  display: block;
+}
 footer section {
   width: 960px;
   margin: auto;
 }
-
+footer li{
+  margin: 5px 0;
+}
 footer div {
   display: inline-block;
   width: 33%;
