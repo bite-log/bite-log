@@ -54,14 +54,14 @@
     margin: 20px auto;
     text-align: center;
 }
-.grid-container{
+#gallery-view section{
     width: 33.3%;
     height: 190px;
     box-sizing: border-box;
     margin: 0;
     display: inline-block;
 }
-.food-pic-grid{
+#gallery-view img{
     width: 100%;
     height: 190px;
     padding-right: 10px;
@@ -87,7 +87,7 @@
 .overlay>h5, .overlay>i{
     color: white;
 }
-.grid-container:hover .overlay{
+#gallery-view section:hover .overlay{
     opacity: .8;
 }
 figure{
@@ -108,7 +108,7 @@ hr{
     height: 2px;
     border: none;
 }
-.list-container{
+#list-view figure{
     border: 1px solid #A4B8BE;
     box-sizing: border-box;
     border-radius: 10px;
@@ -117,14 +117,21 @@ hr{
     margin-bottom: 10px;
     animation:opac 0.8s;
 }
-.list-container img{
+#list-view img{
+    width: 315px;
+    height: 190px;
+    object-fit: cover;
+    padding-right: 10px;
+    padding-bottom: 7px;
+    box-sizing: border-box;
     float: left;
     margin-right: 15px;
 }
-.list-caption{
+#list-view figcaption{
     padding: 5px;
     display: block;
     float: left;
+    width: 60%;
 }
 #inline{
     display: inline;
@@ -134,9 +141,6 @@ hr{
 }
 #view-icons{
     float: right;
-}
-.list-caption {
-    width: 60%;
 }
 .fa-heart {
     float: right;
@@ -148,12 +152,4 @@ hr{
 .category {
     display: block;
     float: right;
-}
-.food-pic-list{
-    width: 315px;
-    height: 190px;
-    object-fit: cover;
-    padding-right: 10px;
-    padding-bottom: 7px;
-    box-sizing: border-box;
 }

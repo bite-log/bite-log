@@ -34,8 +34,6 @@ var renderSingleGalleryItem = function (biteArray){
   var h5El = document.createElement('h5');
 
   //Set attributes
-  gridItemEl.setAttribute('class', 'grid-container');
-  imgEl.setAttribute('class', 'food-pic-grid');
   overlay.setAttribute('class', 'overlay');
 
   //Define content
@@ -51,16 +49,7 @@ var renderSingleGalleryItem = function (biteArray){
   overlay.appendChild(h5El);
 
   //Number of stars
-  for(var i = 0; i < biteArray.rating; i++){
-    var starEl = document.createElement('i');
-    starEl.setAttribute('class', 'fas fa-star');
-    overlay.appendChild(starEl);
-  }
-  for (var x = 0; x < (5 - biteArray.rating); x++){
-    var starEl = document.createElement('i');
-    starEl.setAttribute('class', 'far fa-star');
-    overlay.appendChild(starEl);
-  }
+  renderStars(biteArray, overlay);
 };
 
 var renderSingleListItem = function(biteArray){
@@ -75,13 +64,8 @@ var renderSingleListItem = function(biteArray){
   var pEl = document.createElement('p');
 
   //Setting attributes
-  figureEl.setAttribute('class', 'list-container');
-  figCapEl.setAttribute('class', 'list-caption');
   imgEl.setAttribute('class', 'food-pic-list');
   favEl.setAttribute('class', 'fav-heart');
-  h5El.setAttribute('class','menu-item');
-  h6El.setAttribute('class', 'restaurant');
-  commentEl.setAttribute('class', 'comment');
   pEl.setAttribute('class', 'category');
 
   //Defining
@@ -108,26 +92,32 @@ var renderSingleListItem = function(biteArray){
   figCapEl.appendChild(h6El);
   figCapEl.appendChild(pEl);
 
-  //Number of stars
+  renderStars(biteArray, figCapEl);
+  figCapEl.appendChild(commentEl);
+};
+
+//Render Number of stars
+var renderStars = function(biteArray, theContainer){
   for(var i = 0; i < biteArray.rating; i++){
+    console.log('hi');
     var starEl = document.createElement('i');
     starEl.setAttribute('class', 'fas fa-star');
-    figCapEl.appendChild(starEl);
+    theContainer.appendChild(starEl);
   }
   for (var x = 0; x < (5 - biteArray.rating); x++){
     var starEl = document.createElement('i');
     starEl.setAttribute('class', 'far fa-star');
-    figCapEl.appendChild(starEl);
+    theContainer.appendChild(starEl);
   }
-  figCapEl.appendChild(commentEl);
 };
 
 //============Test Entries==================
-new BiteLogEntry('pasta', 'Pasta Joint', 'Italian', './assets/pasta.png', 3, false, 'fantastic!');
-new BiteLogEntry('Pot Roast', 'Pot Roast City', 'Comfort Food', './assets/potroast.jpg', 4, false, 'Magical!');
+new BiteLogEntry('Delicioso Noodz', 'Pasta Joint', 'Italian', './assets/pasta.png', 3, true, 'fantastic!');
+new BiteLogEntry('Pot Roast', 'Pot Roast City', 'Comfort Food', './assets/potroast.jpg', 4, true, 'Magical!');
 new BiteLogEntry('Chili', 'Chiliville', 'Comfort Food', './assets/chili.jpg', 2, false, 'good, not great');
 new BiteLogEntry('zoodles', 'Oodles O Noodles', 'Vegetarian', './assets/zoodles.jpg', 1, false, 'watery');
-new BiteLogEntry('cake', 'Just Cakes', 'Dessert', './assets/cake.jpg', 5, true, 'so moist');
+new BiteLogEntry('Cake', 'Just Cakes', 'Dessert', './assets/cake.jpg', 5, true, 'so moist');
+new BiteLogEntry('Tiramisu', 'Just Cakes', 'Dessert', './assets/tiramisu.jpg', 5, false, 'so moist');
 
 //==============Event handlers================
 var changeViewHandler = function(event){
@@ -225,6 +215,9 @@ var renderGalleryHeader = function(){
   restaurantCounterFunction();
   var restaurantCountEl = document.getElementById('restaurant-count');
   restaurantCountEl.textContent = restaurantCounter;
+
+  var h2El = document.getElementById('user');
+  h2El.textContent = currentUser.userName + '\'s bite log>>';
 };
 
 var initializeGallery = function(){
