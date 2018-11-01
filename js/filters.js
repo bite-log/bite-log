@@ -19,12 +19,13 @@
 // sortFromLowest.reverse();
 
 //=======Sort by Category=======
-var userCategory;
+var categorySelections = document.getElementById('food-category');
+
 
 var totalBites = [...biteLogEntryArray];
 var categorySortHandler = function(event){
   biteLogEntryArray = [];
-  userCategory = categorySelections.options[categorySelections.selectedIndex].value;
+  var userCategory = categorySelections.options[categorySelections.selectedIndex].value;
   console.log('category has changed to ' + userCategory);
   if (userCategory === 'default'){
     biteLogEntryArray = [...totalBites];
@@ -68,5 +69,5 @@ var categorySortHandler = function(event){
 // filterLogs.addEventListener('change', filterHandler);
 
 
-var categorySelections = document.getElementById('food-category');
+
 categorySelections.addEventListener('onchange', categorySortHandler);

@@ -23,6 +23,7 @@ var BiteLogEntry = function(dish, restaurant, category, src, rating, isFav, comm
   allRestaurantArray.push(this.restaurant);
 };
 
+//================Render Functions==========================
 var renderSingleGalleryItem = function (biteArray){
   //Define HTML elements
   var galleryView = document.getElementById('gallery-view');
@@ -134,23 +135,6 @@ var changeViewHandler = function(event){
     listIcon.removeAttribute('class');
     gridIcon.setAttribute('class', 'icon-selected');
     refreshSection();
-    renderGallery();
-    console.log('grid clicked');
-  } else if (event.target.id === 'list-icon'){
-    gridIcon.removeAttribute('class');
-    listIcon.setAttribute('class', 'icon-selected');
-    refreshSection();
-    renderList();
-    console.log('list clicked');
-  }
-};
-
-//==============Event handlers================
-var changeViewHandler = function(event){
-  if (event.target.id === 'grid-icon'){
-    listIcon.removeAttribute('class');
-    gridIcon.setAttribute('class', 'icon-selected');
-    refreshSection();
     renderGallery(biteLogEntryArray);
     console.log('grid clicked');
   } else if (event.target.id === 'list-icon'){
@@ -211,6 +195,8 @@ var renderList = function(array){
     renderSingleListItem(array[i]);
   }
 };
+
+//==========Counter Functions==================
 var restaurantCounterFunction = function(){
   for (var i = 0; i < allRestaurantArray.length; i++) {
     if(uniqueRestaurantArray.indexOf(allRestaurantArray[i]) === -1) {
@@ -241,12 +227,15 @@ var renderGalleryHeader = function(){
   restaurantCountEl.textContent = restaurantCounter;
 };
 
-localStorageCheck();
-if (galleryView || listView){
-  renderGallery(biteLogEntryArray);
-  renderGalleryHeader();
-  viewIconSection.addEventListener('click', changeViewHandler);
-  changeViewHandler;
-} else{
-  newFoodLogForm.addEventListener('submit', foodLogHandler);
-}
+var initializeGallery = function(){
+  localStorageCheck();
+  if (galleryView || listView){
+    renderGallery(biteLogEntryArray);
+    renderGalleryHeader();
+    viewIconSection.addEventListener('click', changeViewHandler);
+    changeViewHandler;
+  } else{
+    newFoodLogForm.addEventListener('submit', foodLogHandler);
+  }
+};
+initializeGallery();

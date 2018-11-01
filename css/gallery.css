@@ -1,157 +1,159 @@
 .user-profile{
     background: center no-repeat url('../images/gallerydefault.jpg') black;
     opacity: 0.8;
-    height: 350px;
+    height: 380px;
     width: 100%;
-    }
-    #user-info{
+    animation:opac 0.8s;
+}
+#user-info{
     width: 960px;
     margin: auto;
-    padding-top: 35px;
-    }
-    #bites{
+    padding-top: 70px;
+}
+#bites{
     width: 37.5%;
     display: inline-block;
     text-align: center;
     vertical-align: top;
     margin-top: 30px;
-    }
-    .user-profile figure{
+}
+.user-profile figure{
     display: center;
     margin-left: auto;
     margin-right: auto;
     display: inline-block;
-    }
-    #user-profilepic{
+}
+#user-profilepic{
     clear: both;
     border-radius: 200px;
     width: 225px;
     height: 225px;
     border: 3px solid lightgray;
-    }
-    #user-name{
+}
+#user-name{
     text-align: center;
     color: white;
-    }
-    #restaurants{
+}
+#restaurants{
     width: 37.5%;
     display: inline-block;
     text-align: center;
     vertical-align: top;
     margin-top: 30px;
-    }
-    #grid-icon, #list-icon{
+}
+#grid-icon, #list-icon{
     color: #3F4D51;
-    }
-    #grid-icon:hover, #list-icon:hover{
+}
+#grid-icon:hover, #list-icon:hover{
     color: #7CD6F1;
-    }
-    .icon-selected{
+}
+.icon-selected{
     color:#40A4C4 !important;
-    }
-    #gallery-view{
+}
+#gallery-view{
     margin: 20px auto;
     text-align: center;
-    }
-    .grid-container{
+}
+.grid-container{
     width: 33.3%;
     height: 190px;
     box-sizing: border-box;
     margin: 0;
     display: inline-block;
-    }
-    .food-pic-grid{
+}
+.food-pic-grid{
     width: 100%;
     height: 190px;
     padding-right: 10px;
     padding-bottom: 7px;
     object-fit: cover;
     box-sizing: border-box;
-    }
-    .overlay{
+    animation: opac 0.8s;
+}
+@keyframes opac{
+    from{opacity:0} to{opacity:1}
+}
+.overlay{
     position: absolute;
     width: 293.02px;
     height: 183px;
     opacity: 0;
     transition: .5s ease;
     background-color: black;
-    }
-    .overlay>h2{
+}
+.overlay>h2{
     margin-top: 50px;
-    }
-    .overlay>h5, .overlay>i{
+}
+.overlay>h5, .overlay>i{
     color: white;
-    }
-    .grid-container:hover .overlay{
+}
+.grid-container:hover .overlay{
     opacity: .8;
-    }
-    figure{
+}
+figure{
     display: inline-block;
-    }
-    section ul li{
+}
+section ul li{
     display: inline;
-    }
-    #block{
-    display: inline-block!important;
-    }
-    select, option{
+}
+select, option{
     margin-right: 5px;
     font-family: 'Karla', Arial, Helvetica, sans-serif;
     border-radius: 3px;
     border: 1px solid #A4B8BE;
     padding: 2px;
-    }
-    hr{
+}
+hr{
     background-color: #7CD6F1;
     height: 2px;
     border: none;
-    }
-    .list-container{
+}
+.list-container{
     border: 1px solid #A4B8BE;
     box-sizing: border-box;
     border-radius: 10px;
     padding: 10px;
     width: 100%;
     margin-bottom: 10px;
-    }
-    .list-container img{
+    animation:opac 0.8s;
+}
+.list-container img{
     float: left;
     margin-right: 15px;
-    }
-    .list-caption{
+}
+.list-caption{
     padding: 5px;
     display: block;
     float: left;
-    }
-    #inline{
+}
+#inline{
     display: inline;
-    }
-    .float{
+}
+.float{
     float: left;
-    }
-    #view-icons{
+}
+#view-icons{
     float: right;
-    }
-    .list-caption {
+}
+.list-caption {
     width: 60%;
-    }
-    .fa-heart {
+}
+.fa-heart {
     float: right;
-    }
-    .restaurant {
+}
+.restaurant {
     margin-bottom: 15px;
     font-size: 15px;
-    }
-    .category {
+}
+.category {
     display: block;
     float: right;
-    }
-    .food-pic-list{
+}
+.food-pic-list{
     width: 315px;
     height: 190px;
     object-fit: cover;
     padding-right: 10px;
     padding-bottom: 7px;
     box-sizing: border-box;
-    }
-    
+}
