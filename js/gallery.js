@@ -90,6 +90,12 @@ var renderSingleListItem = function(biteArray){
   commentEl.textContent = biteArray.comment;
   pEl.textContent = biteArray.category;
 
+  //if Favorited
+  if (biteArray.isFavorite){
+    favEl.setAttribute('class', 'fas fa-heart');
+  } else{
+    favEl.setAttribute('class', 'far fa-heart');
+  }
   //Appending
   listView.appendChild(figureEl);
   figureEl.appendChild(imgEl);
@@ -97,17 +103,13 @@ var renderSingleListItem = function(biteArray){
   figCapEl.appendChild(favEl);
   figCapEl.appendChild(h5El);
 
-  //if Favorited
-  if (biteArray.isFavorite === true){
-    favEl.setAttribute('class', 'fas fa-heart');
-  } else{
-    favEl.setAttribute('class', 'far fa-heart');
-  }
+
 
   figCapEl.appendChild(h6El);
   figCapEl.appendChild(pEl);
 
   //Number of stars
+  console.log(biteArray);
   for(var i = 0; i < biteArray.rating; i++){
     var starEl = document.createElement('i');
     starEl.setAttribute('class', 'fas fa-star');
