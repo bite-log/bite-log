@@ -56,11 +56,11 @@ var filterHandler = function(event) {
 
   console.log('filter has changed to ' + userFilter);
   if(userFilter === 'filter-favs') {
+    biteLogEntryArray = [];
     for(var i in totalBites) {
       console.log('in the for loop');
       if(totalBites[i].isFavorite) {
         console.log('here I am In The If!');
-        biteLogEntryArray = [];
         biteLogEntryArray.push(totalBites[i]);
         console.log(totalBites[i]);
       }
