@@ -109,10 +109,10 @@ var renderStars = function(biteArray, theContainer){
 };
 
 //============Test Entries==================
-new BiteLogEntry('Delicioso Noodz', 'Pasta Joint', 'Italian', './assets/pasta.png', 3, true, 'fantastic!');
+new BiteLogEntry('Delicioso Noodz', 'Pasta Joint', 'Italian', './assets/pasta.jpg', 3, true, 'fantastic!');
 new BiteLogEntry('Pot Roast', 'Pot Roast City', 'Comfort Food', './assets/potroast.jpg', 4, true, 'Magical!');
 new BiteLogEntry('Chili', 'Chiliville', 'Comfort Food', './assets/chili.jpg', 2, false, 'good, not great');
-new BiteLogEntry('zoodles', 'Oodles O Noodles', 'Vegetarian', './assets/zoodles.jpg', 1, false, 'watery');
+new BiteLogEntry('zoodles', 'Oodles O Noodles', 'Vegetarian', './assets/zucchininoodles.jpg', 1, false, 'watery');
 new BiteLogEntry('Cake', 'Just Cakes', 'Dessert', './assets/cake.jpg', 5, true, 'so moist');
 new BiteLogEntry('Tiramisu', 'Just Cakes', 'Dessert', './assets/tiramisu.jpg', 5, false, 'flavor combo on point!');
 
