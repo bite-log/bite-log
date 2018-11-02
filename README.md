@@ -5,8 +5,6 @@ Do you remember that amazingly, unbelievably delicious dish you ordered at that 
 
 It is a webapp that is just about the people and their food. No calorie counter or diet measures, and no judgement. Just happy taste buds and bellies, and maybe a new go-to!
 
-==========================
-
 Resources used:
 
 - icons from fontawesome.com
