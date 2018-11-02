@@ -80,7 +80,6 @@ var filterHandler = function(event) {
 };
 
 
-// var categorySelections = document.getElementById('food-category');
 categorySelections.addEventListener('onchange', categorySortHandler);
 
 var filterLogs = document.getElementById('filter-by');
