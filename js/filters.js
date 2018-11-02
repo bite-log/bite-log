@@ -14,7 +14,7 @@
 // });
 
 // //====Filter Calls
-// favorites;
+// // favorites;
 // sortFromLowest;
 // sortFromLowest.reverse();
 
@@ -23,6 +23,7 @@ var categorySelections = document.getElementById('food-category');
 
 
 var totalBites = [...biteLogEntryArray];
+
 var categorySortHandler = function(event){
   biteLogEntryArray = [];
   var userCategory = categorySelections.options[categorySelections.selectedIndex].value;
@@ -36,6 +37,35 @@ var categorySortHandler = function(event){
       console.log(totalBites[i]);
     }
   }
+};
+
+// //=====Filter Handler====
+var userFilter;
+
+var filterHandler = function(event) {
+  userFilter = filterLogs.options[filterLogs.selectedIndex].value;
+  
+  var sortFromLowest = biteLogEntryArray.sort(function (a, b) {
+    return a.rating - b.rating;
+  });
+  
+  console.log('filter has changed to ' + userFilter);
+  if(userFilter === 'filter-favs') {
+    for(var i in totalBites) {
+      if(totalBites[i].isfavorite) {
+        biteLogEntryArray = [];
+        console.log('hereIamInTheIf!');
+        biteLogEntryArray.push(totalBites[i]);
+        console.log(totalBites[i]);
+      }
+    }
+  } else if (userFilter === 'filter-ratinghl') {
+    sortFromLowest.reverse();
+  } else if (userFilter === 'filter-ratinglw') {
+    sortFromLowest;
+  } else if (userFilter === 'default') {
+    biteLogEntryArray = [...totalBites];
+  }
   refreshSection();
   if (document.getElementById('grid-icon').className === 'icon-selected'){
     renderGallery(biteLogEntryArray);
@@ -44,30 +74,10 @@ var categorySortHandler = function(event){
   }
 };
 
-// //=====Filter Handler====
 
-// //Must render for both gallery & list view (must persist through view change?) -- nested if statements?
-
-// var filterHandler = function(event) {
-//   if(event.target.id === 'favorites-filter') {
-//     favorites;
-//     refreshSection();
-//     //render ONLY favorites
-//   } else if (event.target.id === 'highlow-filter') {
-//     sortFromLowest.reverse();
-//     refreshSection();
-//     //render in order high to low
-//   } else if (event.target.id === 'lowhigh-filter') {
-//     sortFromLowest;
-//     refreshSection();
-//     //render in order low to high
-//   } else { //if 'Filter By' remains
-//     //do nothing
-//   }
-// };
-// var filterLogs = document.getElementById('filter-by');
-// filterLogs.addEventListener('change', filterHandler);
-
-
+var categorySelections = document.getElementById('food-category');
 
 categorySelections.addEventListener('onchange', categorySortHandler);
+
+var filterLogs = document.getElementById('filter-by');
+filterLogs.addEventListener('onchange', filterHandler);

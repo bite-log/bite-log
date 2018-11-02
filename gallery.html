@@ -53,11 +53,11 @@
             <select id="food-category" class="float" onchange="categorySortHandler()">
                 <option value="default" selected="selected">Category (all)</option>
             </select>
-            <select name="filter-by">
-                <option value="default" selected="selected">Filter By</option>
-                <option value="filter-favs" selected="selected" id="favorites-filter">Favorites</option>
-                <option value="filter-ratinghl" selected="selected" id="highlow-filter">Rating, high to low</option>
-                <option value="filter-ratinglw" selected="selected" id="lowhigh-filter">Rating, low to high</option>
+            <select id="filter-by" onchange="filterHandler()">
+                <option value="default" selected="selected">Filter By (all)</option>
+                <option value="filter-favs">Favorites</option>
+                <option value="filter-ratinghl">Rating, high to low</option>
+                <option value="filter-ratinglw">Rating, low to high</option>
             </select>
             <!--Grid and List view icons from fontawesome.com-->
             <ul id="view-icons">

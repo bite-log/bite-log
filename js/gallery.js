@@ -219,15 +219,27 @@ var renderGalleryHeader = function(){
   h2El.textContent = currentUser.userName + '\'s bite log>>';
 };
 
-var initializeGallery = function(){
-  localStorageCheck();
-  if (galleryView || listView){
-    renderGallery(biteLogEntryArray);
-    renderGalleryHeader();
-    viewIconSection.addEventListener('click', changeViewHandler);
-    changeViewHandler;
-  } else{
-    newFoodLogForm.addEventListener('submit', foodLogHandler);
-  }
-};
-initializeGallery();
+
+localStorageCheck();
+if (galleryView || listView){
+  renderGallery(biteLogEntryArray);
+  renderGalleryHeader();
+  viewIconSection.addEventListener('click', changeViewHandler);
+  changeViewHandler;
+} else{
+  newFoodLogForm.addEventListener('submit', foodLogHandler);
+}
+
+// var initializeGallery = function(){
+//   localStorageCheck();
+//   if (galleryView || listView){
+//     renderGallery(biteLogEntryArray);
+//     renderGalleryHeader();
+//     viewIconSection.addEventListener('click', changeViewHandler);
+//     changeViewHandler;
+//   } else{
+//     newFoodLogForm.addEventListener('submit', foodLogHandler);
+//   }
+// };
+// initializeGallery();
+
