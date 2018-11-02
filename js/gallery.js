@@ -15,7 +15,6 @@ var BiteLogEntry = function(dish, restaurant, category, src, rating, isFav, comm
   this.category = category;
   this.src = src;
   this.rating = rating;
-
   this.isFavorite = isFav;
   this.comment = comment;
 
@@ -58,10 +57,10 @@ var renderSingleListItem = function(biteArray){
   var figCapEl = document.createElement('figcaption');
   var imgEl = document.createElement('img');
   var favEl = document.createElement('i');
+  var pEl = document.createElement('p');
   var h5El = document.createElement('h5');
   var h6El = document.createElement('h6');
   var commentEl = document.createElement('p');
-  var pEl = document.createElement('p');
 
   //Setting attributes
   imgEl.setAttribute('class', 'food-pic-list');
@@ -86,10 +85,9 @@ var renderSingleListItem = function(biteArray){
   figureEl.appendChild(imgEl);
   figureEl.appendChild(figCapEl);
   figCapEl.appendChild(favEl);
-  figCapEl.appendChild(h5El);
-
-  figCapEl.appendChild(h6El);
   figCapEl.appendChild(pEl);
+  figCapEl.appendChild(h5El);
+  figCapEl.appendChild(h6El);
 
   renderStars(biteArray, figCapEl);
   figCapEl.appendChild(commentEl);
@@ -116,7 +114,7 @@ new BiteLogEntry('Pot Roast', 'Pot Roast City', 'Comfort Food', './assets/potroa
 new BiteLogEntry('Chili', 'Chiliville', 'Comfort Food', './assets/chili.jpg', 2, false, 'good, not great');
 new BiteLogEntry('zoodles', 'Oodles O Noodles', 'Vegetarian', './assets/zoodles.jpg', 1, false, 'watery');
 new BiteLogEntry('Cake', 'Just Cakes', 'Dessert', './assets/cake.jpg', 5, true, 'so moist');
-new BiteLogEntry('Tiramisu', 'Just Cakes', 'Dessert', './assets/tiramisu.jpg', 5, false, 'so moist');
+new BiteLogEntry('Tiramisu', 'Just Cakes', 'Dessert', './assets/tiramisu.jpg', 5, false, 'flavor combo on point!');
 
 //==============Event handlers================
 var changeViewHandler = function(event){

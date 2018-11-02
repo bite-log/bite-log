@@ -146,11 +146,10 @@ hr{
 .fa-heart {
     float: right;
 }
-.restaurant {
-    margin-bottom: 15px;
-    font-size: 15px;
-}
 .category {
-    display: block;
-    float: right;
+    text-align: right;
+}
+h6 {
+    font-size: 15px;
+    margin-bottom: 15px;
 }

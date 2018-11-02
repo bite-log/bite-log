@@ -49,22 +49,24 @@ var userFilter;
 
 var filterHandler = function(event) {
   userFilter = filterLogs.options[filterLogs.selectedIndex].value;
-  
+
   var sortFromLowest = biteLogEntryArray.sort(function (a, b) {
     return a.rating - b.rating;
   });
-  
+
   console.log('filter has changed to ' + userFilter);
   if(userFilter === 'filter-favs') {
     for(var i in totalBites) {
-      if(totalBites[i].isfavorite) {
+      console.log('in the for loop');
+      if(totalBites[i].isFavorite) {
+        console.log('here I am In The If!');
         biteLogEntryArray = [];
-        console.log('hereIamInTheIf!');
         biteLogEntryArray.push(totalBites[i]);
         console.log(totalBites[i]);
       }
     }
   } else if (userFilter === 'filter-ratinghl') {
+    console.log('1st else if');
     sortFromLowest.reverse();
   } else if (userFilter === 'filter-ratinglw') {
     sortFromLowest;
@@ -80,7 +82,6 @@ var filterHandler = function(event) {
 };
 
 
-// var categorySelections = document.getElementById('food-category');
 categorySelections.addEventListener('onchange', categorySortHandler);
 
 var filterLogs = document.getElementById('filter-by');
