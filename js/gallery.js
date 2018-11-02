@@ -15,7 +15,6 @@ var BiteLogEntry = function(dish, restaurant, category, src, rating, isFav, comm
   this.category = category;
   this.src = src;
   this.rating = rating;
-
   this.isFavorite = isFav;
   this.comment = comment;
 
@@ -58,10 +57,10 @@ var renderSingleListItem = function(biteArray){
   var figCapEl = document.createElement('figcaption');
   var imgEl = document.createElement('img');
   var favEl = document.createElement('i');
+  var pEl = document.createElement('p');
   var h5El = document.createElement('h5');
   var h6El = document.createElement('h6');
   var commentEl = document.createElement('p');
-  var pEl = document.createElement('p');
 
   //Setting attributes
   imgEl.setAttribute('class', 'food-pic-list');
@@ -86,10 +85,9 @@ var renderSingleListItem = function(biteArray){
   figureEl.appendChild(imgEl);
   figureEl.appendChild(figCapEl);
   figCapEl.appendChild(favEl);
-  figCapEl.appendChild(h5El);
-
-  figCapEl.appendChild(h6El);
   figCapEl.appendChild(pEl);
+  figCapEl.appendChild(h5El);
+  figCapEl.appendChild(h6El);
 
   renderStars(biteArray, figCapEl);
   figCapEl.appendChild(commentEl);
