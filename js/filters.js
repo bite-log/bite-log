@@ -21,7 +21,6 @@
 //=======Sort by Category=======
 var categorySelections = document.getElementById('food-category');
 
-
 var totalBites = [...biteLogEntryArray];
 
 var categorySortHandler = function(event){
@@ -36,6 +35,12 @@ var categorySortHandler = function(event){
       biteLogEntryArray.push(totalBites[i]);
       console.log(totalBites[i]);
     }
+  }
+  refreshSection();
+  if (document.getElementById('grid-icon').className === 'icon-selected'){
+    renderGallery(biteLogEntryArray);
+  } else{
+    renderList(biteLogEntryArray);
   }
 };
 
@@ -75,8 +80,7 @@ var filterHandler = function(event) {
 };
 
 
-var categorySelections = document.getElementById('food-category');
-
+// var categorySelections = document.getElementById('food-category');
 categorySelections.addEventListener('onchange', categorySortHandler);
 
 var filterLogs = document.getElementById('filter-by');
