@@ -149,6 +149,11 @@ input, select{
   box-sizing: content-box;
   font-family: 'Karla', Arial, Helvetica, sans-serif;
 }
+#add-log-form select{
+  margin: 0;
+  position: relative;
+  left: -15px;
+}
 button{
   height: 40px;
   width: 8%;
