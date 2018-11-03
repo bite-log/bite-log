@@ -37,7 +37,7 @@
         <form id="add-log-form">
             <fieldset>
                 <h2>add food log >></h2>
-                <div id="url-food-pic">
+                <div>
                     <img src="./images/camera-2008479_640.png" alt="Camera Icon">
                     <input type="text" name="url" placeholder="photo url">
                 </div>
@@ -56,14 +56,13 @@
                         <label for="rating">rating</label>
                         <input type="range" id="rating" name="rating" min="0" max="5">
                     </div>
-                    <input id="comment-box" name="comments" type="comments" placeholder="comments" type="text"/>
+                    <input id="comment-box" name="comments" maxlength="240" placeholder="comments (max length: 240 characters)" type="text"/>
                     <button type="submit"><i class="fas fa-sign-in-alt"></i></button>
                 </div>
             </fieldset>
         </form>
     </section>
     
-
     <!--Footer-->
     <footer>
         <section>

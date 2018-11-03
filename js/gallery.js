@@ -18,14 +18,13 @@ var BiteLogEntry = function(dish, restaurant, category, src, rating, isFav, comm
   this.isFavorite = isFav;
   this.comment = comment;
 
-  biteLogEntryArray.unshift(this);
+  biteLogEntryArray.unshift(this); //pushes to beginning of array
   allRestaurantArray.push(this.restaurant);
 };
 
 //================Render Functions==========================
 var renderSingleGalleryItem = function (biteArray){
   //Define HTML elements
-  var galleryView = document.getElementById('gallery-view');
   var gridItemEl = document.createElement('section');
   var imgEl = document.createElement('img');
   var overlay = document.createElement('div');
@@ -96,7 +95,6 @@ var renderSingleListItem = function(biteArray){
 //Render Number of stars
 var renderStars = function(biteArray, theContainer){
   for(var i = 0; i < biteArray.rating; i++){
-    console.log('hi');
     var starEl = document.createElement('i');
     starEl.setAttribute('class', 'fas fa-star');
     theContainer.appendChild(starEl);
@@ -117,6 +115,8 @@ new BiteLogEntry('Cake', 'Just Cakes', 'Dessert', './assets/cake.jpg', 5, true, 
 new BiteLogEntry('Tiramisu', 'Just Cakes', 'Dessert', './assets/tiramisu.jpg', 5, false, 'flavor combo on point!');
 
 //==============Event handlers================
+
+//Display section is cleared and re-rendered based on the clicked icon.
 var changeViewHandler = function(event){
   if (event.target.id === 'grid-icon'){
     listIcon.removeAttribute('class');
@@ -133,6 +133,7 @@ var changeViewHandler = function(event){
   }
 };
 
+//Gathers the values from the add.html page and puts into local storage; redirects to gallery.html when submitted.
 var foodLogHandler = function(event) {
   event.preventDefault();
 
@@ -185,6 +186,7 @@ var renderList = function(array){
 
 //==========Counter Functions==================
 var restaurantCounterFunction = function(){
+  var uniqueRestaurantArray = [];
   for (var i = 0; i < allRestaurantArray.length; i++) {
     if(uniqueRestaurantArray.indexOf(allRestaurantArray[i]) === -1) {
       uniqueRestaurantArray.push(allRestaurantArray[i]);
